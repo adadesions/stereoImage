@@ -11,6 +11,13 @@
   <a href="https://www.qt.io/">
     Qt+ framwork for GUI
   </a>
+</li>
+<li>
+  <a href="http://electron.atom.io/">
+    Electron for create cross-platform application by Javascript ( optional )
+  </a>
+  <p>Electron is the easiest way to create an aplication for any platforms because we can use web tech such HTML, CSS, JS for make beautiful UIs hope you enjoy it.
+  </p>
  </li>
 </ul>
 <br>
