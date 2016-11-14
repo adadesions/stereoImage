@@ -1,0 +1,2 @@
+π”‚ø≈‡¥Õ√Ï ximagpoc 
+‰ª„ Ë‰«È„π‚ø≈‡¥Õ√Ï opencv/build/include/opencv2
