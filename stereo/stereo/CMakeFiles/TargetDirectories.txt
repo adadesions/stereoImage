@@ -1,0 +1,3 @@
+/Users/adacodeio/GitHub/stereoImage/stereo/stereo/CMakeFiles/edit_cache.dir
+/Users/adacodeio/GitHub/stereoImage/stereo/stereo/CMakeFiles/rebuild_cache.dir
+/Users/adacodeio/GitHub/stereoImage/stereo/stereo/CMakeFiles/stereo.dir

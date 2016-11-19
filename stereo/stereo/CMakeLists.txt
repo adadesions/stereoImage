@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( stereo )
+find_package( OpenCV )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( stereo Source.cpp )
+target_link_libraries( stereo ${OpenCV_LIBS} )
