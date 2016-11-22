@@ -128,7 +128,7 @@ namespace emgu2
                 string json = JsonConvert.SerializeObject(updatepoint);
 
                 //write string to file
-                System.IO.File.WriteAllText(@"D:\PointFace" + faceInt + ".json", json);
+                System.IO.File.WriteAllText("../PointFace" + faceInt + ".json", json);
                 Console.WriteLine("file create!!!!");
                 MessageBox.Show("Save To Face"+faceInt);
             }//end if buttonleft
@@ -138,7 +138,7 @@ namespace emgu2
         {
             decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
             int faceInt = decimal.ToInt32(value); //แปลงเป็น int
-            string json = File.ReadAllText(@"D:\PointFace" + faceInt + ".json");
+            string json = File.ReadAllText("../PointFace" + faceInt + ".json");
             InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
             for (int t = 0; t < 37; t++)
             {
