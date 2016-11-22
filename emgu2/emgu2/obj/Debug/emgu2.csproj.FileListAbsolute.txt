@@ -17,9 +17,11 @@ c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Emgu
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Emgu.CV.Stitching.xml
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Emgu.CV.UI.xml
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Emgu.Util.xml
-c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.Form1.resources
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.Properties.Resources.resources
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.csproj.GenerateResource.Cache
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.exe
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.pdb
 c:\users\pornb\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.csprojResolveAssemblyReference.cache
+C:\Users\PorNB\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\emgu2\emgu2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PorNB\documents\visual studio 2015\Projects1\emgu2\emgu2\obj\Debug\emgu2.Form1.resources

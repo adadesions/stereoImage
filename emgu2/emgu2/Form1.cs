@@ -8,83 +8,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace emgu2
 {
+    
     public partial class Form1 : Form
     {
-        //public struct Pointonface
-        //{
-        //    public Pointonface(int[] f1, int[] x1, int[] y1, int[] z1)
-        //    {
-        //        face = f1;
-        //        x = x1;
-        //        y = y1;
-        //        z = z1;
-        //    }
-        //    public int[] face;
-        //    public int[] x;
-        //    public int[] y;
-        //    public int[] z;
-        //}
-        //public Pointonface point = new Pointonface(new int[37], new int[37], new int[37], new int[37]);
+        public class InitialPoint
+        {
+            public int[] PointX { get; set; }
+            public int[] PointY { get; set; }
+            public int[] PointZ { get; set; }
+        }
 
-        //    point.face[0] = "1";
-        //    point.x[0] = 121;
-        //    point.y[0] = 51;
-        //    point.z[0] = 0;
+        public class PointOnFace
+        {
+            public int Face { get; set; }
+            public int[] PointX { get; set; }
+            public int[] PointY { get; set; }
+            public int[] PointZ { get; set; }
+        }
 
+        static string json = File.ReadAllText("../initialpoint.json");
+        static InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
+        //Console.WriteLine(init.PointX[0]);
 
-        public static int[] pointx ={
-            275,
-            481,303,445,221,279,
-            471,535,303,459,293,
-            463,295,380,458,205,
-            246,511,555,341,381,
-            420,312,447,361,385,
-            409,274,321,449,486,
-            356,383,412,382,348,
-            417};
-        public static int[] pointy ={
-            123,
-            118,149,146,208,187,
-            183,201,217,211,233,
-            234,257,246,259,313,
-            280,279,314,313,302,
-            315,338,337,370,375,
-            369,389,391,391,391,
-            407,408,407,431,486,
-            485};
+        public static int[] pointx = init.PointX;
+        public static int[] pointy = init.PointY;
 
-        /*
-                public static int[] pointx ={
-                    82,594,238,440,176,
-                    266,441,536,230,477,
-                    235,475,231,354,479,
-                    96,165,551,615,305,
-                    354,400,281,422,292,
-                    352,410,202,257,450,
-                    505,298,352,410,352,
-                    285,421};
-
-                public static int[] pointy = {
-                    58, 51,101,101,198,
-                    201,201,201,254,254,
-                    296,296,354,345,354,
-                    381,395,395,381,460,
-                    460,460,486,486,556,
-                    550,556,573,582,582,
-                    575,610,618,610,670,
-                    707,707};
-        */
-
-        public int pointmove;
+        public int pointmove; //ตัวแปรกำหนดค่าว่าจุดไหนจะขยับตามเม้า
         private Point MouseDownLocation;
 
         public Form1()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = true; //ใช้กับการลากจุด
         }
 
         Rectangle[] recStore = new Rectangle[37];
@@ -98,7 +57,7 @@ namespace emgu2
                 recStore[i] = new Rectangle((pointx[i]), (pointy[i]), 8, 8);
                 e.Graphics.FillEllipse(Brushes.Red, recStore[i]);
             }
-            Update();
+            Update(); //ลื่น ใช้กับจุดขยับตามเม้า
             //Refresh(); //ตรงนี้ทำให้หน่วงและทำให้จุดขยับตามเม้าได้
         }
 
@@ -124,7 +83,6 @@ namespace emgu2
                         holdy = differencey[i];
                         pointmove = i;
                         Console.WriteLine("Point" + pointmove);
-                        //break;
                         //finish search pointmove
                     }
                     //finish condition search pointmove
@@ -158,82 +116,37 @@ namespace emgu2
         {
             if (e.Button == MouseButtons.Left)
             {
-                decimal value = (numericUpDown1.Value);
-                int faceInt= decimal.ToInt32(value);
+                decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+                int faceInt = decimal.ToInt32(value); //แปลงเป็น int
                 string face = faceInt.ToString();
-                Console.WriteLine("face "+face);
-                //Object selectedItem = comboBox1.SelectedItem;   
-                    string path = @"C:\emgu2\face" + face + ".txt";
-                    InitializeComponent();
+                PointOnFace updatepoint = new PointOnFace();
+                updatepoint.Face = faceInt;
+                updatepoint.PointX = pointx;
+                updatepoint.PointY = pointy;
+                //updatepoint.PointZ = pointz;
 
-                    if (!File.Exists(path))
-                    {
-                        // Create a file to write to.
-                        using (StreamWriter sw = File.CreateText(path))
-                        {
-                            sw.WriteLine("public static int[] pointx ={");
-                            sw.WriteLine(/*updatex[0]*/pointx[0] + ",");
-                            for (int k = 1; k <= 35; k++)
-                            {
-                                sw.Write(/*updatex[k]*/pointx[k] + ",");
-                                if (k % 5 == 0 && k > 0)
-                                {
-                                    sw.WriteLine();
-                                }
-                            }
-                            sw.Write(/*updatex[36]*/pointx[36]);
-                            sw.WriteLine("};");
-                            sw.WriteLine("public static int[] pointy ={");
-                            sw.WriteLine(/*updatey[0]*/pointy[0] + ",");
-                            for (int k = 1; k <= 35; k++)
-                            {
-                                sw.Write(/*updatey[k]*/pointy[k] + ",");
-                                if (k % 5 == 0 && k > 0)
-                                {
-                                    sw.WriteLine();
-                                }
-                            }
-                            sw.Write(/*updatey[36]*/pointy[36]);
-                            sw.WriteLine("};");
-                            sw.Close();
-                        }
-                        Console.WriteLine("File create!!!!");
-                    }
-                    else
-                    {
-                        File.Delete(path);
-                        // Create a file to write to.
-                        using (StreamWriter sw = File.CreateText(path))
-                        {
-                            sw.WriteLine("public static int[] pointx ={");
-                            sw.WriteLine(pointx[0] + ",");
-                            for (int k = 1; k <= 35; k++)
-                            {
-                                sw.Write(pointx[k] + ",");
-                                if (k % 5 == 0 && k > 0)
-                                {
-                                    sw.WriteLine();
-                                }
-                            }
-                            sw.Write(pointx[36]);
-                            sw.WriteLine("};");
-                            sw.WriteLine("public static int[] pointy ={");
-                            sw.WriteLine(pointy[0] + ",");
-                            for (int k = 1; k <= 35; k++)
-                            {
-                                sw.Write(pointy[k] + ",");
-                                if (k % 5 == 0 && k > 0)
-                                {
-                                    sw.WriteLine();
-                                }
-                            }
-                            sw.Write(pointy[36]);
-                            sw.WriteLine("};");
-                            sw.Close();
-                        }
-                        Console.WriteLine("File update!!!!");
-                    }//finish else create file
+                string json = JsonConvert.SerializeObject(updatepoint);
+
+                //write string to file
+                System.IO.File.WriteAllText(@"D:\PointFace" + faceInt + ".json", json);
+                Console.WriteLine("file create!!!!");
+                MessageBox.Show("Save To Face"+faceInt);
             }//end if buttonleft
         }//finish function save
+
+        private void button1_MouseDown(object sender, MouseEventArgs e)
+        {
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
+            string json = File.ReadAllText(@"D:\PointFace" + faceInt + ".json");
+            InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
+            for (int t = 0; t < 37; t++)
+            {
+                pointx[t] = init.PointX[t];
+                pointy[t] = init.PointY[t];
+            }
+            MessageBox.Show("Load Point Face" + faceInt);
+            Invalidate(true);
+        }
     }//finish class
 }

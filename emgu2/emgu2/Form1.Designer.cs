@@ -34,6 +34,7 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -71,28 +72,52 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(726, 171);
+            this.trackBar1.Location = new System.Drawing.Point(726, 282);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(174, 45);
             this.trackBar1.TabIndex = 8;
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.AccessibleDescription = "";
+            this.numericUpDown1.AccessibleName = "";
             this.numericUpDown1.Location = new System.Drawing.Point(726, 50);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             200,
             0,
             0,
             0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(67, 20);
             this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Tag = "";
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(727, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 39);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "LoadPoint";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 741);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.vScrollBar1);
@@ -114,6 +139,7 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
