@@ -1,5 +1,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include "json/json.h"
 #include <iostream>
 #include <fstream>
 
@@ -40,7 +41,6 @@ static void draw_delaunay(Mat& img, Subdiv2D& subdiv, Scalar delaunay_color)
 
 int main(int argc, char** argv)
 {
-
 	// Define window names
 	string win_delaunay = "Delaunay Triangulation";
 
@@ -51,7 +51,7 @@ int main(int argc, char** argv)
 	Scalar delaunay_color(255, 255, 255), points_color(0, 0, 255);
 
 	// Read in the image.
-	Mat img = imread("DisparityImg/1.png");
+	Mat img = imread("DisparityImage/139.png");
 
 	// Keep a copy around
 	Mat img_orig = img.clone();
@@ -67,8 +67,9 @@ int main(int argc, char** argv)
 	vector<Point2f> points;
 
 	// Read in the points from a text file
-	ifstream ifs("PointFace/points.txt");
+	ifstream ifs("PointFace/PointFace139.txt"); 
 	int x, y;
+	
 	while (ifs >> x >> y)
 	{
 		points.push_back(Point2f(x, y));
@@ -100,7 +101,7 @@ int main(int argc, char** argv)
 
 	// Show results.
 	imshow(win_delaunay, img);
-	imwrite("DelaunayImg/1.png", img);
+	imwrite("DelaunayImg/DE139.png", img);
 	waitKey(0);
 	return 0;
 }
