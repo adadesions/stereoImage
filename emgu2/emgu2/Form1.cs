@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace emgu2
 {
-    
+
     public partial class Form1 : Form
     {
         public class InitialPoint
@@ -20,7 +20,7 @@ namespace emgu2
             public int[] PointX { get; set; }
             public int[] PointY { get; set; }
             public int[] PointZ { get; set; }
-        }
+    }
 
         public class PointOnFace
         {
@@ -29,7 +29,6 @@ namespace emgu2
             public int[] PointY { get; set; }
             public int[] PointZ { get; set; }
         }
-
         static string json = File.ReadAllText("../initialpoint.json");
         static InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
         //Console.WriteLine(init.PointX[0]);
@@ -52,9 +51,7 @@ namespace emgu2
         {
             for (int i = 0; i < 37; i++)
             {
-                //updatex[i] = (pointx[i] * 80) / 100;
-                //updatey[i] = (pointy[i] * 65) / 100;
-                recStore[i] = new Rectangle((pointx[i]), (pointy[i]), 8, 8);
+                recStore[i] = new Rectangle((pointx[i]), (pointy[i]), 10, 10);
                 e.Graphics.FillEllipse(Brushes.Red, recStore[i]);
             }
             Update(); //ลื่น ใช้กับจุดขยับตามเม้า
@@ -102,7 +99,7 @@ namespace emgu2
             {
                 //pointmove
                 MouseDownLocation = e.Location;
-                recStore[pointmove] = new Rectangle(e.X, e.Y, 8, 8);
+                recStore[pointmove] = new Rectangle(e.X, e.Y, 10, 10);
                 pointx[pointmove] = e.X;
                 pointy[pointmove] = e.Y;
                 Console.WriteLine("Point" + pointmove + "X = " + MouseDownLocation.X);
@@ -110,9 +107,15 @@ namespace emgu2
                 Invalidate(true);
                 //finish pointmove
             }
+        
         }
 
-        private void save_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void save_MouseDown(object sender, MouseEventArgs e) //save json
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -126,26 +129,83 @@ namespace emgu2
                 //updatepoint.PointZ = pointz;
 
                 string json = JsonConvert.SerializeObject(updatepoint);
-
+               
                 //write string to file
                 System.IO.File.WriteAllText("../PointFace" + faceInt + ".json", json);
+                //save to emgu2\bin\
                 Console.WriteLine("file create!!!!");
-                MessageBox.Show("Save To Face"+faceInt);
+                MessageBox.Show("Save To Face" + faceInt);
             }//end if buttonleft
         }//finish function save
+        
+        private void button2_Click(object sender, EventArgs e) //Select Image
+        {
+            OpenFileDialog open = new OpenFileDialog();
+                if(open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Image img = Image.FromFile(open.FileName);               
+                pictureBox1.Image = img;
+              
+                //Console.WriteLine(pictureBox1.ImageLocation);
+                //string result;
 
-        private void button1_MouseDown(object sender, MouseEventArgs e)
+                //result = Path.GetFileName(filepath);
+            }
+        }
+
+        private void save_txt_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+                int faceInt = decimal.ToInt32(value); //แปลงเป็น int
+                string face = faceInt.ToString();
+                PointOnFace updatepoint = new PointOnFace();
+                updatepoint.Face = faceInt;
+                updatepoint.PointX = pointx;
+                updatepoint.PointY = pointy;
+                //updatepoint.PointZ = pointz;
+                //string path = @"C:\emgu2\face" + face + ".txt";
+                string path = "../PointFace" + faceInt + ".txt";           
+                if (!File.Exists(path))
+                {
+                    // Create a file to write to.
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        for (int k = 0; k <= 36; k++)
+                        {
+                            sw.Write(pointx[k] + " " + pointy[k] + "\n");
+                        }
+                        sw.Close();
+                    }
+                    Console.WriteLine("File create!!!!");
+                }                
+                MessageBox.Show("Save To Face" + faceInt);
+                Invalidate(true);
+            }//end if buttonleft
+        }
+
+        private void LoadPoint_Click(object sender, EventArgs e)
         {
             decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
-            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
-            string json = File.ReadAllText("../PointFace" + faceInt + ".json");
-            InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
-            for (int t = 0; t < 37; t++)
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int            
+            bool checkfile = File.Exists("../PointFace" + faceInt + ".json");
+            Console.WriteLine(checkfile);
+            if (checkfile == true)
             {
-                pointx[t] = init.PointX[t];
-                pointy[t] = init.PointY[t];
+                string json = File.ReadAllText("../PointFace" + faceInt + ".json");
+                InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
+                for (int t = 0; t < 37; t++)
+                {
+                    pointx[t] = init.PointX[t];
+                    pointy[t] = init.PointY[t];
+                }
+                MessageBox.Show("Load Point Face" + faceInt);
             }
-            MessageBox.Show("Load Point Face" + faceInt);
+            else
+            {
+                MessageBox.Show("File Not Found");
+            }
             Invalidate(true);
         }
     }//finish class

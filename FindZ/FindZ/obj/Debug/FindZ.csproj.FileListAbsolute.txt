@@ -1,0 +1,16 @@
+c:\users\pornb\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\FindZ.exe.config
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\FindZ.exe
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\FindZ.pdb
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Emgu.CV.UI.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Emgu.CV.World.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\ZedGraph.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Emgu.CV.UI.xml
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Emgu.CV.World.xml
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.csprojResolveAssemblyReference.cache
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.Form1.resources
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.Properties.Resources.resources
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.csproj.GenerateResource.Cache
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.exe
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.pdb
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Newtonsoft.Json.xml

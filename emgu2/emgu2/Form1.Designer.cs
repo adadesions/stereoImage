@@ -32,11 +32,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.save = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.save_txt = new System.Windows.Forms.Button();
+            this.LoadPoint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,12 +53,13 @@
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(726, 92);
+            this.save.Location = new System.Drawing.Point(728, 60);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(144, 40);
+            this.save.Size = new System.Drawing.Size(141, 40);
             this.save.TabIndex = 4;
             this.save.Text = "save";
             this.save.UseVisualStyleBackColor = true;
@@ -70,18 +72,11 @@
             this.vScrollBar1.Size = new System.Drawing.Size(18, 739);
             this.vScrollBar1.TabIndex = 7;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(726, 282);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(174, 45);
-            this.trackBar1.TabIndex = 8;
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.AccessibleDescription = "";
             this.numericUpDown1.AccessibleName = "";
-            this.numericUpDown1.Location = new System.Drawing.Point(726, 50);
+            this.numericUpDown1.Location = new System.Drawing.Point(766, 21);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             200,
             0,
@@ -102,31 +97,61 @@
             0,
             0});
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(727, 152);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 39);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "LoadPoint";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.button2.Location = new System.Drawing.Point(728, 231);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 41);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Select Image";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(729, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Face";
+            // 
+            // save_txt
+            // 
+            this.save_txt.Location = new System.Drawing.Point(728, 111);
+            this.save_txt.Name = "save_txt";
+            this.save_txt.Size = new System.Drawing.Size(140, 43);
+            this.save_txt.TabIndex = 13;
+            this.save_txt.Text = "save txt";
+            this.save_txt.UseVisualStyleBackColor = true;
+            this.save_txt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.save_txt_MouseDown);
+            // 
+            // LoadPoint
+            // 
+            this.LoadPoint.Location = new System.Drawing.Point(729, 162);
+            this.LoadPoint.Name = "LoadPoint";
+            this.LoadPoint.Size = new System.Drawing.Size(138, 45);
+            this.LoadPoint.TabIndex = 14;
+            this.LoadPoint.Text = "LoadPoint";
+            this.LoadPoint.UseVisualStyleBackColor = true;
+            this.LoadPoint.Click += new System.EventHandler(this.LoadPoint_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 741);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(914, 733);
+            this.Controls.Add(this.LoadPoint);
+            this.Controls.Add(this.save_txt);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.save);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,9 +162,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button save_txt;
+        private System.Windows.Forms.Button LoadPoint;
     }
 }
 

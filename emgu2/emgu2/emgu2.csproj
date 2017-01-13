@@ -51,9 +51,11 @@
     <Reference Include="Emgu.CV.Stitching">
       <HintPath>..\..\..\..\..\..\..\Emgu\libemgucv-windows-x64-2.4.0.1717\bin\Emgu.CV.Stitching.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.UI">
-      <HintPath>..\..\..\..\..\..\..\Emgu\libemgucv-windows-x64-2.4.0.1717\bin\Emgu.CV.UI.dll</HintPath>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438" />
     <Reference Include="Emgu.Util">
       <HintPath>..\..\..\..\..\..\..\Emgu\libemgucv-windows-x64-2.4.0.1717\bin\Emgu.Util.dll</HintPath>
     </Reference>
@@ -73,6 +75,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -108,25 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="opencv_calib3d240.dll" />
-    <Content Include="opencv_contrib240.dll" />
-    <Content Include="opencv_core240.dll" />
-    <Content Include="opencv_features2d240.dll" />
-    <Content Include="opencv_ffmpeg240_64.dll" />
-    <Content Include="opencv_flann240.dll" />
-    <Content Include="opencv_gpu240.dll" />
-    <Content Include="opencv_highgui240.dll" />
-    <Content Include="opencv_imgproc240.dll" />
-    <Content Include="opencv_legacy240.dll" />
-    <Content Include="opencv_ml240.dll" />
-    <Content Include="opencv_nonfree240.dll" />
-    <Content Include="opencv_objdetect240.dll" />
-    <Content Include="opencv_photo240.dll" />
-    <Content Include="opencv_stitching240.dll" />
-    <Content Include="opencv_video240.dll" />
-    <Content Include="opencv_videostab240.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
