@@ -1,0 +1,9 @@
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\bin\Debug\CropImage.exe.config
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\bin\Debug\CropImage.exe
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\bin\Debug\CropImage.pdb
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.csprojResolveAssemblyReference.cache
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.CropImage.resources
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.Properties.Resources.resources
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.csproj.GenerateResource.Cache
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.exe
+c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.pdb
