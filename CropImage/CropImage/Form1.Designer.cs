@@ -90,7 +90,7 @@
             this.TargetPicBox.Location = new System.Drawing.Point(856, 25);
             this.TargetPicBox.Name = "TargetPicBox";
             this.TargetPicBox.Size = new System.Drawing.Size(355, 365);
-            this.TargetPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.TargetPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TargetPicBox.TabIndex = 4;
             this.TargetPicBox.TabStop = false;
             // 

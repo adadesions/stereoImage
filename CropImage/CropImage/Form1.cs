@@ -19,8 +19,8 @@ namespace CropImage
         Point ptLast = new Point();
         Rectangle rectCropArea;
         //Image srcImage = null;
-        //Graphics g;
-        //Bitmap sourceBitmap { get; set; }
+        Bitmap sourceBitmap { get; set; }
+        Bitmap targetBitmap { get; set;}
 
         public CropImage()
         {
@@ -135,21 +135,67 @@ namespace CropImage
         private void Crop_Click(object sender, EventArgs e)
         {
             TargetPicBox.Refresh();
-
+            
             //Prepare a new Bitmap on which the cropped image will be drawn
-            Bitmap sourceBitmap = new Bitmap(SrcPicBox.Image, SrcPicBox.Width, SrcPicBox.Height);
-            Graphics g = TargetPicBox.CreateGraphics();
+            sourceBitmap = new Bitmap(SrcPicBox.Image, SrcPicBox.Width, SrcPicBox.Height);
+            targetBitmap = new Bitmap(355, 365);
+            Graphics g1 = Graphics.FromImage(sourceBitmap); //เปิดแล้ว ภาพครอปถูกเซฟด้วย
+            Graphics g2 = TargetPicBox.CreateGraphics(); //ทำให้ภาพครอปขึ้นที่ TargetPic
+                     
+            //Checks if the co-rdinates check-box is checked. If yes, then Selection is based on co-rdinates mentioned in the textbox
+            if (chkCropCordinates.Checked)
+            {
+                //logic to retreive co-rdinates from comma-separated string values
+                lbCordinates.Text = "";
+                string[] cordinates = tbCordinates.Text.ToString().Split(',');
+                int cord0, cord1, cord2, cord3;
+
+                try
+                {
+                    cord0 = Convert.ToInt32(cordinates[0]);
+                    cord1 = Convert.ToInt32(cordinates[1]);
+                    cord2 = Convert.ToInt32(cordinates[2]);
+                    cord3 = Convert.ToInt32(cordinates[3]);
+                }
+                catch (Exception ex)
+                {
+                    lbCordinates.Text = ex.Message;
+                    return;
+                }
+
+                //Various combinations of selection rectangle being dragged in different directions
+
+                if ((cord0 < cord2 && cord1 < cord3))
+                {
+                    rectCropArea = new Rectangle(cord0, cord1, cord2 - cord0, cord3 - cord1);
+                }
+                else if (cord2 < cord0 && cord3 > cord1)
+                {
+                    rectCropArea = new Rectangle(cord2, cord1, cord0 - cord2, cord3 - cord1);
+                }
+                else if (cord2 > cord0 && cord3 < cord1)
+                {
+                    rectCropArea = new Rectangle(cord0, cord3, cord2 - cord0, cord1 - cord3);
+                }
+                else
+                {
+                    rectCropArea = new Rectangle(cord2, cord3, cord0 - cord2, cord1 - cord3);
+                }
+            }
 
             //Draw the image on the Graphics object with the new dimesions
-                                        
-                g.DrawImage(sourceBitmap, new Rectangle(0, 0, TargetPicBox.Width, TargetPicBox.Height),
-                rectCropArea, GraphicsUnit.Pixel);
-                g = Graphics.FromImage(sourceBitmap);
+            
+            g2.DrawImage(sourceBitmap, new Rectangle(0, 0, TargetPicBox.Width, TargetPicBox.Height),
+               rectCropArea, GraphicsUnit.Pixel);
+            //g2 = Graphics.FromImage(targetBitmap);
 
+            g1.DrawImage(sourceBitmap, new Rectangle(0, 0, SrcPicBox.Width, SrcPicBox.Height),
+               rectCropArea, GraphicsUnit.Pixel); //ทำให้ภาพครอปเซฟ แต่ภาพตัวอย่างเพี้ยน
+            
+            //TargetPicBox.Image.Save(AppDomain.CurrentDomain.BaseDirectory +"10000test.jpg");   
             //Good practice to dispose the System.Drawing objects when not in use.
-            //sourceBitmap.Dispose();
-            //Bitmap targetBitmap = new Bitmap(TargetPicBox.Image, TargetPicBox.Width, TargetPicBox.Height);
-            sourceBitmap.Save(AppDomain.CurrentDomain.BaseDirectory + "castle_icon.jpg", ImageFormat.Jpeg);
+            //sourceBitmap.Dispose();           
+
         }
 
         private void chkCropCordinates_CheckedChanged(object sender, EventArgs e)
@@ -208,44 +254,44 @@ namespace CropImage
 
         private void Save_Image_Click(object sender, EventArgs e)
         {
-            //// Displays a SaveFileDialog so the user can save the Image
-            //// assigned to Button2.
-            //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            //saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-            //saveFileDialog1.Title = "Save an Image File";
-            //saveFileDialog1.ShowDialog();
+            // Displays a SaveFileDialog so the user can save the Image
+            // assigned to Button2.
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
+            saveFileDialog1.Title = "Save an Image File";
+            saveFileDialog1.ShowDialog();
 
-            //// If the file name is not an empty string open it for saving.
-            //if (saveFileDialog1.FileName != "")
-            //{
-            //    // Saves the Image via a FileStream created by the OpenFile method.
-            //    System.IO.FileStream fs =
-            //       (System.IO.FileStream)saveFileDialog1.OpenFile();
-            //    // Saves the Image in the appropriate ImageFormat based upon the
-            //    // File type selected in the dialog box.
-            //    // NOTE that the FilterIndex property is one-based.
-            //    switch (saveFileDialog1.FilterIndex)
-            //    {
-            //        case 1:
-            //            this.Save_Image.Image.Save(fs,
-            //               System.Drawing.Imaging.ImageFormat.Jpeg);
-            //            break;
+            // If the file name is not an empty string open it for saving.
+            if (saveFileDialog1.FileName != "")
+            {
+                // Saves the Image via a FileStream created by the OpenFile method.
+                System.IO.FileStream fs =
+                   (System.IO.FileStream)saveFileDialog1.OpenFile();
+                // Saves the Image in the appropriate ImageFormat based upon the
+                // File type selected in the dialog box.
+                // NOTE that the FilterIndex property is one-based.
+                switch (saveFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        this.sourceBitmap.Save(fs,
+                           System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
 
-            //        case 2:
-            //            this.Save_Image.Image.Save(fs,
-            //               System.Drawing.Imaging.ImageFormat.Bmp);
-            //            break;
+                    case 2:
+                        this.sourceBitmap.Save(fs,
+                           System.Drawing.Imaging.ImageFormat.Bmp);
+                        break;
 
-            //        case 3:
-            //            this.Save_Image.Image.Save(fs,
-            //               System.Drawing.Imaging.ImageFormat.Gif);
-            //            break;
-            //    }
+                    case 3:
+                        this.Save_Image.Image.Save(fs,
+                           System.Drawing.Imaging.ImageFormat.Gif);
+                        break;
+                }
 
-            //    fs.Close();
-            //}           
-                TargetPicBox.Image.Save(@"E:\100000test.jpg", ImageFormat.Jpeg);
-            //Invalidate(true);
+                fs.Close();
+            }
+            
+            sourceBitmap.Dispose();           
         }
     }
 }
