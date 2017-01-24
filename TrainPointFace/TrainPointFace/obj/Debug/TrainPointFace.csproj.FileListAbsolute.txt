@@ -1,0 +1,14 @@
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe.config
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.pdb
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\bin\Debug\Newtonsoft.Json.dll
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\bin\Debug\Newtonsoft.Json.xml
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csprojResolveAssemblyReference.cache
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.TrainPointFace.resources
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.Properties.Resources.resources
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csproj.GenerateResource.Cache
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
+c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb
+D:\Github\stereoImage\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe.config
+D:\Github\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
+D:\Github\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb
