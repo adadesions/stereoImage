@@ -135,13 +135,14 @@ namespace CropImage
         private void Crop_Click(object sender, EventArgs e)
         {
             TargetPicBox.Refresh();
-            
+
             //Prepare a new Bitmap on which the cropped image will be drawn
             sourceBitmap = new Bitmap(SrcPicBox.Image, SrcPicBox.Width, SrcPicBox.Height);
             targetBitmap = new Bitmap(355, 365);
-            Graphics g1 = Graphics.FromImage(sourceBitmap); //เปิดแล้ว ภาพครอปถูกเซฟด้วย
-            Graphics g2 = TargetPicBox.CreateGraphics(); //ทำให้ภาพครอปขึ้นที่ TargetPic
-                     
+            Graphics g1 = Graphics.FromImage(sourceBitmap);
+            Graphics g3 = TargetPicBox.CreateGraphics(); //for image show on TargetPic
+            Graphics g2 = Graphics.FromImage(targetBitmap); //image save
+
             //Checks if the co-rdinates check-box is checked. If yes, then Selection is based on co-rdinates mentioned in the textbox
             if (chkCropCordinates.Checked)
             {
@@ -184,14 +185,12 @@ namespace CropImage
             }
 
             //Draw the image on the Graphics object with the new dimesions
-            
-            g2.DrawImage(sourceBitmap, new Rectangle(0, 0, TargetPicBox.Width, TargetPicBox.Height),
-               rectCropArea, GraphicsUnit.Pixel);
-            //g2 = Graphics.FromImage(targetBitmap);
+            g3.DrawImage(sourceBitmap, new Rectangle(0, 0, TargetPicBox.Width, TargetPicBox.Height),
+               rectCropArea, GraphicsUnit.Pixel); //show image
 
-            g1.DrawImage(sourceBitmap, new Rectangle(0, 0, SrcPicBox.Width, SrcPicBox.Height),
-               rectCropArea, GraphicsUnit.Pixel); //ทำให้ภาพครอปเซฟ แต่ภาพตัวอย่างเพี้ยน
-            
+            g2.DrawImage(sourceBitmap, new Rectangle(0, 0, TargetPicBox.Width, TargetPicBox.Height),
+               rectCropArea, GraphicsUnit.Pixel); //save image
+
             //TargetPicBox.Image.Save(AppDomain.CurrentDomain.BaseDirectory +"10000test.jpg");   
             //Good practice to dispose the System.Drawing objects when not in use.
             //sourceBitmap.Dispose();           
@@ -273,25 +272,27 @@ namespace CropImage
                 switch (saveFileDialog1.FilterIndex)
                 {
                     case 1:
-                        this.sourceBitmap.Save(fs,
+                        this.targetBitmap.Save(fs,
                            System.Drawing.Imaging.ImageFormat.Jpeg);
+                        targetBitmap.Dispose();
                         break;
 
                     case 2:
-                        this.sourceBitmap.Save(fs,
+                        this.targetBitmap.Save(fs,
                            System.Drawing.Imaging.ImageFormat.Bmp);
+                        targetBitmap.Dispose();
                         break;
 
                     case 3:
-                        this.Save_Image.Image.Save(fs,
+                        this.targetBitmap.Save(fs,
                            System.Drawing.Imaging.ImageFormat.Gif);
+                        targetBitmap.Dispose();
                         break;
                 }
 
                 fs.Close();
-            }
+            }                     
             
-            sourceBitmap.Dispose();           
         }
     }
 }

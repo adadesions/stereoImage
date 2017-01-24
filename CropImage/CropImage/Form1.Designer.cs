@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CropImage));
             this.SrcPicBox = new System.Windows.Forms.PictureBox();
             this.Source_Picture = new System.Windows.Forms.Label();
             this.lbCordinates = new System.Windows.Forms.Label();
@@ -38,18 +39,17 @@
             this.Select_Image = new System.Windows.Forms.Button();
             this.Target_Picture = new System.Windows.Forms.Label();
             this.Save_Image = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Filename = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SrcPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TargetPicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SrcPicBox
             // 
+            this.SrcPicBox.Image = ((System.Drawing.Image)(resources.GetObject("SrcPicBox.Image")));
             this.SrcPicBox.Location = new System.Drawing.Point(15, 25);
             this.SrcPicBox.Name = "SrcPicBox";
-            this.SrcPicBox.Size = new System.Drawing.Size(710, 730);
-            this.SrcPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.SrcPicBox.Size = new System.Drawing.Size(710, 720);
+            this.SrcPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SrcPicBox.TabIndex = 0;
             this.SrcPicBox.TabStop = false;
             this.SrcPicBox.Paint += new System.Windows.Forms.PaintEventHandler(this.SrcPicBox_Paint);
@@ -87,10 +87,10 @@
             // 
             // TargetPicBox
             // 
+            this.TargetPicBox.Image = ((System.Drawing.Image)(resources.GetObject("TargetPicBox.Image")));
             this.TargetPicBox.Location = new System.Drawing.Point(856, 25);
             this.TargetPicBox.Name = "TargetPicBox";
             this.TargetPicBox.Size = new System.Drawing.Size(355, 365);
-            this.TargetPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TargetPicBox.TabIndex = 4;
             this.TargetPicBox.TabStop = false;
             // 
@@ -135,7 +135,7 @@
             // 
             // Save_Image
             // 
-            this.Save_Image.Location = new System.Drawing.Point(856, 445);
+            this.Save_Image.Location = new System.Drawing.Point(856, 410);
             this.Save_Image.Name = "Save_Image";
             this.Save_Image.Size = new System.Drawing.Size(118, 32);
             this.Save_Image.TabIndex = 9;
@@ -143,30 +143,12 @@
             this.Save_Image.UseVisualStyleBackColor = true;
             this.Save_Image.Click += new System.EventHandler(this.Save_Image_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(856, 419);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // Filename
-            // 
-            this.Filename.AutoSize = true;
-            this.Filename.Location = new System.Drawing.Point(853, 403);
-            this.Filename.Name = "Filename";
-            this.Filename.Size = new System.Drawing.Size(49, 13);
-            this.Filename.TabIndex = 11;
-            this.Filename.Text = "Filename";
-            // 
             // CropImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1284, 651);
-            this.Controls.Add(this.Filename);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Save_Image);
             this.Controls.Add(this.Target_Picture);
             this.Controls.Add(this.Select_Image);
@@ -198,8 +180,6 @@
         private System.Windows.Forms.Button Select_Image;
         private System.Windows.Forms.Label Target_Picture;
         private System.Windows.Forms.Button Save_Image;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label Filename;
     }
 }
 
