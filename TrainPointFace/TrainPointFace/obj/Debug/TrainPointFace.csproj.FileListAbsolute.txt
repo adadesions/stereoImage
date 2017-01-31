@@ -9,6 +9,3 @@ c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointF
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csproj.GenerateResource.Cache
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb
-D:\Github\stereoImage\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe.config
-D:\Github\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
-D:\Github\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb

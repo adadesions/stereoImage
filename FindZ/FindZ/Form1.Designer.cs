@@ -73,6 +73,7 @@
             this.UpdateZ = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Cleartext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -83,7 +84,6 @@
             this.imageBox1.Location = new System.Drawing.Point(19, 10);
             this.imageBox1.Name = "imageBox1";
             this.imageBox1.Size = new System.Drawing.Size(710, 730);
-            this.imageBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageBox1.TabIndex = 2;
             this.imageBox1.TabStop = false;
             this.imageBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.imageBox1_Paint);
@@ -409,11 +409,23 @@
             this.label2.TabIndex = 45;
             this.label2.Text = "FaceNo. UpdateZ";
             // 
+            // Cleartext
+            // 
+            this.Cleartext.Location = new System.Drawing.Point(859, 123);
+            this.Cleartext.Name = "Cleartext";
+            this.Cleartext.Size = new System.Drawing.Size(85, 28);
+            this.Cleartext.TabIndex = 46;
+            this.Cleartext.Text = "Cleartext";
+            this.Cleartext.UseVisualStyleBackColor = true;
+            this.Cleartext.Click += new System.EventHandler(this.Cleartext_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1089, 733);
+            this.Controls.Add(this.Cleartext);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UpdateZ);
@@ -514,6 +526,7 @@
         private System.Windows.Forms.Button UpdateZ;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Cleartext;
     }
 }
 

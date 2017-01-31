@@ -50,7 +50,7 @@ namespace TrainPointFace
             for (int i = 0; i < 37; i++)
             {
                 recStore[i] = new Rectangle((pointx[i]), (pointy[i]), 10, 10);
-                e.Graphics.FillEllipse(Brushes.Red, recStore[i]);
+                e.Graphics.FillEllipse(Brushes.Blue, recStore[i]);
             }
             Update(); //ลื่น ใช้กับจุดขยับตามเม้า
             //Refresh(); //ตรงนี้ทำให้หน่วงและทำให้จุดขยับตามเม้าได้
@@ -119,8 +119,8 @@ namespace TrainPointFace
 
         private void LoadPoint_Click(object sender, EventArgs e)
         {
-            decimal value = (numericUpDown1.Value); //face no
-            int faceInt = decimal.ToInt32(value); //convert to int            
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int            
             bool checkfile = File.Exists("../PointFace" + faceInt + ".json");
             Console.WriteLine(checkfile);
             if (checkfile == true)
@@ -143,8 +143,8 @@ namespace TrainPointFace
 
         private void save_txt_Click(object sender, EventArgs e)
         {
-            decimal value = (numericUpDown1.Value); //face no
-            int faceInt = decimal.ToInt32(value); //convert to int
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
             DialogResult result = MessageBox.Show("Save To " + value, "Save txt", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -156,7 +156,7 @@ namespace TrainPointFace
                 updatepoint.PointY = pointy;
                 //updatepoint.PointZ = pointz;
                 //string path = @"C:\emgu2\face" + face + ".txt";
-                string path = "../PointFace" + faceInt + ".txt";
+                string path = "../PointFaceC" + faceInt + ".txt";
                 if (!File.Exists(path))
                 {
                     // Create a file to write to.
@@ -182,8 +182,8 @@ namespace TrainPointFace
 
         private void save_Click(object sender, EventArgs e)
         {
-            decimal value = (numericUpDown1.Value); //face no
-            int faceInt = decimal.ToInt32(value); //convert to int
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
             DialogResult result = MessageBox.Show("Save To Face " + value, "Save Json", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
@@ -198,7 +198,7 @@ namespace TrainPointFace
                 string json = JsonConvert.SerializeObject(updatepoint);
 
                 //write string to file
-                System.IO.File.WriteAllText("../PointFace" + faceInt + ".json", json);
+                System.IO.File.WriteAllText("../PointFaceC" + faceInt + ".json", json);
                 //save to emgu2\bin\
                 Console.WriteLine("file create!!!!");
                 MessageBox.Show("Save To Face" + faceInt);

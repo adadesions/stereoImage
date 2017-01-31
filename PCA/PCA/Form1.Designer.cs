@@ -35,16 +35,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFeatureVectors = new System.Windows.Forms.DataGridView();
             this.ShowEigenVector = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AveragePoint = new System.Windows.Forms.DataGridView();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EigenVector = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Average = new System.Windows.Forms.TabPage();
+            this.SaveAvg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeatureVectors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AveragePoint)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.EigenVector.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.Average.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbMethod
@@ -117,22 +121,41 @@
             this.ShowEigenVector.UseVisualStyleBackColor = true;
             this.ShowEigenVector.Click += new System.EventHandler(this.ShowEigenVector_Click);
             // 
-            // dataGridView1
+            // AveragePoint
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(629, 256);
-            this.dataGridView1.TabIndex = 10;
+            this.AveragePoint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AveragePoint.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.X,
+            this.Y,
+            this.Z});
+            this.AveragePoint.Location = new System.Drawing.Point(0, 6);
+            this.AveragePoint.Name = "AveragePoint";
+            this.AveragePoint.Size = new System.Drawing.Size(629, 298);
+            this.AveragePoint.TabIndex = 10;
+            // 
+            // X
+            // 
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            // 
+            // Y
+            // 
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            // 
+            // Z
+            // 
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.EigenVector);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.Average);
             this.tabControl1.Location = new System.Drawing.Point(242, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(640, 292);
+            this.tabControl1.Size = new System.Drawing.Size(640, 330);
             this.tabControl1.TabIndex = 12;
             // 
             // EigenVector
@@ -141,27 +164,38 @@
             this.EigenVector.Location = new System.Drawing.Point(4, 22);
             this.EigenVector.Name = "EigenVector";
             this.EigenVector.Padding = new System.Windows.Forms.Padding(3);
-            this.EigenVector.Size = new System.Drawing.Size(632, 266);
+            this.EigenVector.Size = new System.Drawing.Size(632, 304);
             this.EigenVector.TabIndex = 0;
             this.EigenVector.Text = "EigenVector";
             this.EigenVector.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // Average
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(632, 266);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.Average.Controls.Add(this.AveragePoint);
+            this.Average.Location = new System.Drawing.Point(4, 22);
+            this.Average.Name = "Average";
+            this.Average.Padding = new System.Windows.Forms.Padding(3);
+            this.Average.Size = new System.Drawing.Size(632, 304);
+            this.Average.TabIndex = 1;
+            this.Average.Text = "Average";
+            this.Average.UseVisualStyleBackColor = true;
+            // 
+            // SaveAvg
+            // 
+            this.SaveAvg.Location = new System.Drawing.Point(15, 223);
+            this.SaveAvg.Name = "SaveAvg";
+            this.SaveAvg.Size = new System.Drawing.Size(213, 42);
+            this.SaveAvg.TabIndex = 13;
+            this.SaveAvg.Text = "Save Avg Value";
+            this.SaveAvg.UseVisualStyleBackColor = true;
+            this.SaveAvg.Click += new System.EventHandler(this.SaveAvg_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 545);
+            this.ClientSize = new System.Drawing.Size(883, 357);
+            this.Controls.Add(this.SaveAvg);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ShowEigenVector);
             this.Controls.Add(this.label2);
@@ -173,10 +207,10 @@
             this.Text = "PCA";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeatureVectors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AveragePoint)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.EigenVector.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.Average.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,10 +224,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvFeatureVectors;
         private System.Windows.Forms.Button ShowEigenVector;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView AveragePoint;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage EigenVector;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage Average;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
+        private System.Windows.Forms.Button SaveAvg;
     }
 }
 

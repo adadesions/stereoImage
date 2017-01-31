@@ -55,7 +55,9 @@ namespace PCA
             this.DoubleBuffered = true;
             InitializeComponent();                                   
         }
-        
+
+        double[] average = new double[111];
+
         private void LoadFace_Click(object sender, EventArgs e)
         {
             decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
@@ -98,18 +100,18 @@ namespace PCA
                 }
             }//load all face done
 
-            //prepare Value Sum all of face per point
-            double[] average = new double[111];
-            double[][] SumOf1Point = new double[111][];
+            //prepare Value Sum all face per point ซัมของทุกหน้าจาก1จุด
+            //double[] average = new double[111];
+            double[][] SumOf1Point = new double[111][]; //111 from 37point * 3 -> 3 from x y z
             for (int i=0;i<111;i++)
             {
                 SumOf1Point[i] = new double[NumberOfFaceMax];
             }
 
-            //Add Value all face per point to sum1point
-            for (int point = 0; point < 111; point++)
+            //Add Value all face per 1 Dimension(111 = 37 Point*3 Dimension) to sum1point
+            for (int point = 0; point < 111; point++) //loop dimension
             {
-                for (int face = 0; face < NumberOfFaceMax; face++)
+                for (int face = 0; face < NumberOfFaceMax; face++) //loop face
                 {
                     if(face == 0)
                     {
@@ -127,19 +129,37 @@ namespace PCA
                     if (face == NumberOfFaceMax - 1) 
                     {
                         average[point] = SumOf1Point[point][face] / NumberOfFaceMax;
-                        Console.WriteLine(face + "\n");
+                        //Console.WriteLine(face + "\n");
                         Console.WriteLine("Point " + point + ": " + average[point]);
                     }
                 }//end inside for loop
             }//end outside for loop
+
+            double[][] averageBeauty = new double[37][]; 
+            for(int a = 0 ; a < 37; a++) //37 from point on face
+            {
+                averageBeauty[a] = new double[3];  //3 from x y z
+            }
+            for(int x = 0; x < 37; x++)
+            {
+                averageBeauty[x][0] = average[x];
+            }
+            for (int y = 0; y < 37; y++)
+            {
+                averageBeauty[y][1] = average[y+37];
+            }
+            for (int z = 0; z < 37; z++)
+            {
+                averageBeauty[z][2] = average[z+74];
+            }
 
             var method = (PrincipalComponentMethod)cbMethod.SelectedValue;
             // Create the Principal Component Analysis of the data
             pca = new PrincipalComponentAnalysis(method);
 
             pca.Learn(sourceMatrix);  // Finally, compute the analysis!
-            MessageBox.Show("Learn PCA Done");          
-                       
+            MessageBox.Show("Learn PCA Done");
+            AveragePoint.DataSource = new ArrayDataView(averageBeauty); //x1 to x37 y1 to y37 z1 to z37
             Invalidate(true);
          
         }
@@ -153,9 +173,44 @@ namespace PCA
             Console.WriteLine(" LengthRow :" + vectors.Length + "\n");
             Console.WriteLine(" LengthCol :" + vectors[0].Length + "\n");
             MessageBox.Show(" Row :" + vectors.Length + "\n" + " Col :" + vectors[0].Length + "\n");
+
             Invalidate(true);
         }
 
+        private void SaveAvg_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Save To PCA/PCA/bin", "Save txt", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //yes...                
+                //string face = faceInt.ToString();
+                PointOnFace updatepoint = new PointOnFace();
+                updatepoint.Face = 0;
+                updatepoint.PointX = pointx;
+                updatepoint.PointY = pointy;
+                //updatepoint.PointZ = pointz;
+                string path = "../PointFaceAverage" + ".txt";
+                if (!File.Exists(path))
+                {
+                    // Create a file to write to.
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        for (int k = 0; k <= 36; k++)
+                        {
+                            sw.Write(average[k] + " " + average[k+37] + "\n");
+                        }
+                        sw.Close();
+                    }
+                    Console.WriteLine("File create!!!!");
+                }
+                MessageBox.Show("Save File");
+                Invalidate(true);
 
+            }
+            else if (result == DialogResult.No)
+            {
+                //no...
+            }
+        }
     }
 }

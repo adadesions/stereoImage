@@ -7,3 +7,5 @@ c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAve
 c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.csproj.GenerateResource.Cache
 c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.exe
 c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.pdb
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PorNB\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.xml
