@@ -9,3 +9,14 @@ c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAve
 c:\users\pornb\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.pdb
 C:\Users\PorNB\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.dll
 C:\Users\PorNB\documents\visual studio 2015\Projects1\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\bin\Debug\FindAverageTexture.exe.config
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.exe
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.pdb
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\bin\Debug\FindAverageTexture.exe
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\bin\Debug\FindAverageTexture.pdb
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.csprojResolveAssemblyReference.cache
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.Form1.resources
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.Properties.Resources.resources
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.csproj.GenerateResource.Cache
