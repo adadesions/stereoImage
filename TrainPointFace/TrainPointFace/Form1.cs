@@ -16,24 +16,24 @@ namespace TrainPointFace
     {
         public class InitialPoint
         {
-            public int[] PointX { get; set; }
-            public int[] PointY { get; set; }
-            public int[] PointZ { get; set; }
+            public double[] PointX { get; set; }
+            public double[] PointY { get; set; }
+            public double[] PointZ { get; set; }
         }
 
         public class PointOnFace
         {
             public int Face { get; set; }
-            public int[] PointX { get; set; }
-            public int[] PointY { get; set; }
-            public int[] PointZ { get; set; }
+            public double[] PointX { get; set; }
+            public double[] PointY { get; set; }
+            public double[] PointZ { get; set; }
         }
         static string json = File.ReadAllText("../initialpoint.json");
         static InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
         //Console.WriteLine(init.PointX[0]);
 
-        public static int[] pointx = init.PointX;
-        public static int[] pointy = init.PointY;
+        public static double[] pointx = init.PointX;
+        public static double[] pointy = init.PointY;
 
         public int pointmove; //ตัวแปรกำหนดค่าว่าจุดไหนจะขยับตามเม้า
         private Point MouseDownLocation;
@@ -47,9 +47,13 @@ namespace TrainPointFace
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
+            int[] pointxx = new int[37];
+            int[] pointyy = new int[37];
             for (int i = 0; i < 37; i++)
             {
-                recStore[i] = new Rectangle((pointx[i]), (pointy[i]), 10, 10);
+                pointxx[i] = Convert.ToInt32(pointx[i]);
+                pointyy[i] = Convert.ToInt32(pointy[i]);
+                recStore[i] = new Rectangle((pointxx[i]), (pointyy[i]), 10, 10);
                 e.Graphics.FillEllipse(Brushes.Blue, recStore[i]);
             }
             Update(); //ลื่น ใช้กับจุดขยับตามเม้า
@@ -58,9 +62,9 @@ namespace TrainPointFace
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            int[] differencex = new int[37];
-            int[] differencey = new int[37];
-            int holdx = 8, holdy = 8;
+            double[] differencex = new double[37];
+            double[] differencey = new double[37];
+            double holdx = 8, holdy = 8;
 
             if (e.Button == MouseButtons.Left)
             {
@@ -141,7 +145,7 @@ namespace TrainPointFace
             Invalidate(true);
         }
 
-        private void save_txt_Click(object sender, EventArgs e)
+        private void save_txt_Click(object sender, EventArgs e) //For Open CV c++
         {
             decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
             int faceInt = decimal.ToInt32(value); //แปลงเป็น int
@@ -155,7 +159,6 @@ namespace TrainPointFace
                 updatepoint.PointX = pointx;
                 updatepoint.PointY = pointy;
                 //updatepoint.PointZ = pointz;
-                //string path = @"C:\emgu2\face" + face + ".txt";
                 string path = "../PointFaceC" + faceInt + ".txt";
                 if (!File.Exists(path))
                 {
@@ -198,6 +201,36 @@ namespace TrainPointFace
                 string json = JsonConvert.SerializeObject(updatepoint);
 
                 //write string to file
+                System.IO.File.WriteAllText("../PointFace" + faceInt + ".json", json);
+                //save to emgu2\bin\
+                Console.WriteLine("file create!!!!");
+                MessageBox.Show("Save To Face" + faceInt);
+            }
+            else if (result == DialogResult.No)
+            {
+                //no...
+            }
+
+        }
+
+        private void save_crop_Click(object sender, EventArgs e)
+        {
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
+            DialogResult result = MessageBox.Show("Save To Face " + value, "Save Json", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //yes...               
+                string face = faceInt.ToString();
+                PointOnFace updatepoint = new PointOnFace();
+                updatepoint.Face = faceInt;
+                updatepoint.PointX = pointx;
+                updatepoint.PointY = pointy;
+                //updatepoint.PointZ = pointz;
+
+                string json = JsonConvert.SerializeObject(updatepoint);
+
+                //write string to file
                 System.IO.File.WriteAllText("../PointFaceC" + faceInt + ".json", json);
                 //save to emgu2\bin\
                 Console.WriteLine("file create!!!!");
@@ -208,5 +241,112 @@ namespace TrainPointFace
                 //no...
             }
         }
+
+        private void LoadPointCrop_Click(object sender, EventArgs e)
+        {
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int            
+            bool checkfile = File.Exists("../PointFaceC" + faceInt + ".json");
+            Console.WriteLine(checkfile);
+            if (checkfile == true)
+            {
+                string json = File.ReadAllText("../PointFaceC" + faceInt + ".json");
+                InitialPoint init = JsonConvert.DeserializeObject<InitialPoint>(json);
+                for (int t = 0; t < 37; t++)
+                {
+                    pointx[t] = init.PointX[t];
+                    pointy[t] = init.PointY[t];
+                }
+                MessageBox.Show("Load Point Face Crop" + faceInt);
+            }
+            else
+            {
+                MessageBox.Show("File Not Found");
+            }
+            Invalidate(true);
+        }
+
+        private void save_DrawDelaunay_gl_Click(object sender, EventArgs e) //for openGL c++
+        {
+            decimal value = (numericUpDown1.Value); //ค่าเลือก หมายเลขหน้า
+            int faceInt = decimal.ToInt32(value); //แปลงเป็น int
+            DialogResult result = MessageBox.Show("Save To " + value, "Save txt", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                double pivotx = 0,pivoty = 0;
+                double pivot_y1 = 0, pivot_y2 = 0;
+                //find pivot
+                if (pointy[0] < pointy[1])
+                {
+                    pivot_y1 = pointy[0];
+                }
+                else if(pointy[0] == pointy[1])
+                {
+                    pivot_y1 = pointy[0];
+                }
+                else if (pointy[0] > pointy[1])
+                {
+                    pivot_y1 = pointy[1];
+                }
+                //x2.............................
+                if (pointy[35] < pointy[36])
+                {
+                    pivot_y2 = pointy[36];
+                }
+                else if (pointy[35] == pointy[36])
+                {
+                    pivot_y2 = pointy[35];
+                }
+                else if(pointy[35] > pointy[36])
+                {
+                    pivot_y2 = pointy[35];
+                }
+                pivoty = (pivot_y2 + pivot_y1) /2 ;
+                //finish y................
+                pivotx = (pointx[18] + pointx[15]) /2 ;
+                Console.WriteLine(pivotx);
+                Console.WriteLine(pivoty);
+                //finish find pivot
+                //Rotate 180 degree
+                for (int rotate = 0; rotate < 37; rotate++)
+                {
+                    //pointx[rotate] = ((pointx[rotate] - pivotx) *(-0.6)) - ((pointy[rotate] - pivoty) *(0.8)) + pivotx;
+                    //pointy[rotate] = ((pointx[rotate] - pivotx) *(0.8)) + ((pointy[rotate] - pivoty) *(-0.6)) + pivoty;
+                    pointx[rotate] = ((pointx[rotate] - pivotx) * (-1))  + pivotx;
+                    pointy[rotate] = ((pointy[rotate] - pivoty) * (-1)) + pivoty;
+                }
+                //finish rotate 180 degree
+                //yes...                
+                string face = faceInt.ToString();
+                PointOnFace updatepoint = new PointOnFace();
+                updatepoint.Face = faceInt;
+                updatepoint.PointX = pointx;
+                updatepoint.PointY = pointy;
+                //updatepoint.PointZ = pointz;
+
+                string path = "../PointFaceCGL" + faceInt + ".txt";
+                if (!File.Exists(path))
+                {
+                    // Create a file to write to.
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        for (int k = 0; k <= 36; k++)
+                        {
+                            sw.Write(pointx[k] + " " + pointy[k] + "\n");
+                        }
+                        sw.Close();
+                    }
+                    Console.WriteLine("File create!!!!");
+                }
+                MessageBox.Show("Save To Face" + faceInt);
+                Invalidate(true);
+
+            }
+            else if (result == DialogResult.No)
+            {
+                //no...
+            }
+        }
+        
     }
 }

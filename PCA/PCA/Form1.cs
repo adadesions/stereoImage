@@ -189,7 +189,7 @@ namespace PCA
                 updatepoint.PointX = pointx;
                 updatepoint.PointY = pointy;
                 //updatepoint.PointZ = pointz;
-                string path = "../PointFaceAverage" + ".txt";
+                string path = "../PointFaceAveragee" + ".txt";
                 if (!File.Exists(path))
                 {
                     // Create a file to write to.
@@ -197,7 +197,9 @@ namespace PCA
                     {
                         for (int k = 0; k <= 36; k++)
                         {
-                            sw.Write(average[k] + " " + average[k+37] + "\n");
+                            int averageX_int = Convert.ToInt32(average[k]);
+                            int averageY_int = Convert.ToInt32(average[k+37]);
+                            sw.Write(averageX_int + " " + averageY_int + "\n");
                         }
                         sw.Close();
                     }

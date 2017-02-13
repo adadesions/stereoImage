@@ -584,7 +584,8 @@ namespace FindAverageTexture
             ALPHA1 = Area_Triangle1 / (Area_Triangle1 + Area_Triangle2 + Area_Triangle3);
             ALPHA2 = Area_Triangle2 / (Area_Triangle1 + Area_Triangle2 + Area_Triangle3);
             ALPHA3 = Area_Triangle3 / (Area_Triangle1 + Area_Triangle2 + Area_Triangle3);
-
+            double SumAlpha = ALPHA1 + ALPHA2 + ALPHA3;
+            //Console.WriteLine("ALPLHA : " + SumAlpha);  //Check = 1 ok
             double x1_alpha, x2_alpha, x3_alpha, x_alpha, y1_alpha, y2_alpha, y3_alpha, y_alpha;
             x1_alpha = ALPHA1 * Triangles[tri].x1;
             x2_alpha = ALPHA2 * Triangles[tri].x2;
@@ -646,16 +647,16 @@ namespace FindAverageTexture
                             Calculate_Alpha(x,y,tri,ref x_alphaa, ref y_alphaa);
 
                             Color colorpixel = myBitmap.GetPixel(x_alphaa, y_alphaa);
-
-                            //Console.WriteLine("x = " + x + " y = " + y);
-                            //Console.WriteLine("x_alphaa = " + x_alphaa + " y_alphaa = " + y_alphaa);
+                            Console.WriteLine("Triangle : " + tri);
+                            Console.WriteLine("x = " + x + " y = " + y);
+                            Console.WriteLine("x_alphaa = " + x_alphaa + " y_alphaa = " + y_alphaa);
                             pixel[x][y] = colorpixel.R;
 
                             //Console.WriteLine("x = " + x + " y = " + y);
                             //Console.WriteLine("xalpha = " + x_alpha + " yalpha = " + y_alpha);
                             //Console.WriteLine("x_alphaa = " + x_alphaa + " y_alphaa = " + y_alphaa);
                             //Console.WriteLine(pixel[x][y]);
-                            //Console.WriteLine("-----------------------------------");
+                            Console.WriteLine("-----------------------------------");
                             checktri = 1;
                             break;
                             //Console.WriteLine("q1 = " + q1 + " q2 = " + q2 + " q3 = " + q3);                           
@@ -694,8 +695,7 @@ namespace FindAverageTexture
             string json = JsonConvert.SerializeObject(pixel);
             System.IO.File.WriteAllText("../Pixel/Pixel" + faceInt + ".json", json);
             Console.WriteLine("Done");
-        }
-               
+        }               
         public void Cal_Avg_Pixel()
         {
             for (int temp = 0; temp < 355; temp++)
@@ -735,7 +735,7 @@ namespace FindAverageTexture
                 {
 
                     sourceMatrix[faceInt][x] = pixel[xx][yy];
-                    ++yy;
+                    ++yy; //pixel keep up to down >> left to right
                     if (yy % 365 == 0)
                     {
                         ++xx;
@@ -771,7 +771,7 @@ namespace FindAverageTexture
                     }
 
                     //calculate average all point
-                    ////SumOf1Point[point][face] > last index face is value sum of all face
+                    ////SumOf1Pixel[point][face] > last index face is value sum of all face
                     if (face == NumberOfFaceMax - 1)
                     {
                         average[point] = SumOf1Pixel[point][face] / NumberOfFaceMax;
@@ -781,8 +781,24 @@ namespace FindAverageTexture
                 }//end inside for loop
             }//end outside for loop
 
-            Console.WriteLine(face + "\n");
-            Console.WriteLine("Point " + 75750 + ": " + average[75750]);
+            double[][] averageBeauty = new double[355][];
+            for (int a = 0; a < 355; a++) //37 from point on face
+            {
+                averageBeauty[a] = new double[365];  //3 from x y z
+            }
+            int pix=0;
+            for (int x = 0; x < 355; x++)
+            {
+                for(int y = 0; y < 365; y++)
+                {              
+                    averageBeauty[x][y] = average[pix];
+                    ++pix;
+                }
+                
+            }
+
+            Console.WriteLine(pix + "\n");
+            //Console.WriteLine("Point " + 75750 + ": " + average[75750]);
 
         }
 
@@ -803,6 +819,7 @@ namespace FindAverageTexture
             Cal_Avg_Pixel();
             MessageBox.Show("Calculate Done Now Click Save");
         }
+
 
     }
 }

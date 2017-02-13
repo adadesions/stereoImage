@@ -36,9 +36,6 @@
             this.dgvFeatureVectors = new System.Windows.Forms.DataGridView();
             this.ShowEigenVector = new System.Windows.Forms.Button();
             this.AveragePoint = new System.Windows.Forms.DataGridView();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EigenVector = new System.Windows.Forms.TabPage();
             this.Average = new System.Windows.Forms.TabPage();
@@ -124,29 +121,10 @@
             // AveragePoint
             // 
             this.AveragePoint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AveragePoint.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.X,
-            this.Y,
-            this.Z});
             this.AveragePoint.Location = new System.Drawing.Point(0, 6);
             this.AveragePoint.Name = "AveragePoint";
             this.AveragePoint.Size = new System.Drawing.Size(629, 298);
             this.AveragePoint.TabIndex = 10;
-            // 
-            // X
-            // 
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            // 
-            // Y
-            // 
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            // 
-            // Z
-            // 
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
             // 
             // tabControl1
             // 
@@ -228,9 +206,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage EigenVector;
         private System.Windows.Forms.TabPage Average;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
         private System.Windows.Forms.Button SaveAvg;
     }
 }

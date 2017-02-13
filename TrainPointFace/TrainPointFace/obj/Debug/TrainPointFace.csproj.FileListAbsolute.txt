@@ -9,3 +9,17 @@ c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointF
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csproj.GenerateResource.Cache
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
 c:\users\pornb\documents\visual studio 2015\Projects1\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe.config
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.pdb
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csprojResolveAssemblyReference.cache
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.TrainPointFace.resources
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.Properties.Resources.resources
+C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.csproj.GenerateResource.Cache
+C:\cygwin64\home\PorNB3558\stereoImage\TrainPointFace\TrainPointFace\bin\Debug\TrainPointFace.exe.config
+C:\cygwin64\home\PorNB3558\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.exe
+C:\cygwin64\home\PorNB3558\stereoImage\TrainPointFace\TrainPointFace\obj\Debug\TrainPointFace.pdb

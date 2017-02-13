@@ -35,6 +35,9 @@
             this.save_txt = new System.Windows.Forms.Button();
             this.LoadPoint = new System.Windows.Forms.Button();
             this.Select_Image = new System.Windows.Forms.Button();
+            this.save_crop = new System.Windows.Forms.Button();
+            this.LoadPointCrop = new System.Windows.Forms.Button();
+            this.save_DrawDelaunay_gl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -73,19 +76,19 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(733, 61);
+            this.save.Location = new System.Drawing.Point(733, 148);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(130, 45);
             this.save.TabIndex = 3;
-            this.save.Text = "save";
+            this.save.Text = "save json";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // save_txt
             // 
-            this.save_txt.Location = new System.Drawing.Point(732, 112);
+            this.save_txt.Location = new System.Drawing.Point(733, 199);
             this.save_txt.Name = "save_txt";
-            this.save_txt.Size = new System.Drawing.Size(130, 45);
+            this.save_txt.Size = new System.Drawing.Size(131, 45);
             this.save_txt.TabIndex = 4;
             this.save_txt.Text = "save txt";
             this.save_txt.UseVisualStyleBackColor = true;
@@ -93,17 +96,17 @@
             // 
             // LoadPoint
             // 
-            this.LoadPoint.Location = new System.Drawing.Point(732, 163);
+            this.LoadPoint.Location = new System.Drawing.Point(733, 102);
             this.LoadPoint.Name = "LoadPoint";
-            this.LoadPoint.Size = new System.Drawing.Size(130, 45);
+            this.LoadPoint.Size = new System.Drawing.Size(130, 40);
             this.LoadPoint.TabIndex = 5;
-            this.LoadPoint.Text = "LoadPoint";
+            this.LoadPoint.Text = "Load_Image_Point";
             this.LoadPoint.UseVisualStyleBackColor = true;
             this.LoadPoint.Click += new System.EventHandler(this.LoadPoint_Click);
             // 
             // Select_Image
             // 
-            this.Select_Image.Location = new System.Drawing.Point(732, 224);
+            this.Select_Image.Location = new System.Drawing.Point(733, 51);
             this.Select_Image.Name = "Select_Image";
             this.Select_Image.Size = new System.Drawing.Size(130, 45);
             this.Select_Image.TabIndex = 6;
@@ -111,12 +114,45 @@
             this.Select_Image.UseVisualStyleBackColor = true;
             this.Select_Image.Click += new System.EventHandler(this.Select_Image_Click);
             // 
+            // save_crop
+            // 
+            this.save_crop.Location = new System.Drawing.Point(733, 250);
+            this.save_crop.Name = "save_crop";
+            this.save_crop.Size = new System.Drawing.Size(131, 41);
+            this.save_crop.TabIndex = 7;
+            this.save_crop.Text = "save crop json";
+            this.save_crop.UseVisualStyleBackColor = true;
+            this.save_crop.Click += new System.EventHandler(this.save_crop_Click);
+            // 
+            // LoadPointCrop
+            // 
+            this.LoadPointCrop.Location = new System.Drawing.Point(733, 297);
+            this.LoadPointCrop.Name = "LoadPointCrop";
+            this.LoadPointCrop.Size = new System.Drawing.Size(130, 44);
+            this.LoadPointCrop.TabIndex = 8;
+            this.LoadPointCrop.Text = "Load_CropImage_Point";
+            this.LoadPointCrop.UseVisualStyleBackColor = true;
+            this.LoadPointCrop.Click += new System.EventHandler(this.LoadPointCrop_Click);
+            // 
+            // save_DrawDelaunay_gl
+            // 
+            this.save_DrawDelaunay_gl.Location = new System.Drawing.Point(733, 347);
+            this.save_DrawDelaunay_gl.Name = "save_DrawDelaunay_gl";
+            this.save_DrawDelaunay_gl.Size = new System.Drawing.Size(151, 44);
+            this.save_DrawDelaunay_gl.TabIndex = 9;
+            this.save_DrawDelaunay_gl.Text = "SaveRotate_180Deg_txtFile";
+            this.save_DrawDelaunay_gl.UseVisualStyleBackColor = true;
+            this.save_DrawDelaunay_gl.Click += new System.EventHandler(this.save_DrawDelaunay_gl_Click);
+            // 
             // TrainPointFace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(942, 616);
+            this.Controls.Add(this.save_DrawDelaunay_gl);
+            this.Controls.Add(this.LoadPointCrop);
+            this.Controls.Add(this.save_crop);
             this.Controls.Add(this.Select_Image);
             this.Controls.Add(this.LoadPoint);
             this.Controls.Add(this.save_txt);
@@ -142,6 +178,9 @@
         private System.Windows.Forms.Button save_txt;
         private System.Windows.Forms.Button LoadPoint;
         private System.Windows.Forms.Button Select_Image;
+        private System.Windows.Forms.Button save_crop;
+        private System.Windows.Forms.Button LoadPointCrop;
+        private System.Windows.Forms.Button save_DrawDelaunay_gl;
     }
 }
 

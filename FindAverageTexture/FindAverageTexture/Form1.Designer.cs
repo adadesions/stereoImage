@@ -133,7 +133,7 @@
             this.tabControl1.Location = new System.Drawing.Point(7, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(646, 317);
+            this.tabControl1.Size = new System.Drawing.Size(646, 354);
             this.tabControl1.TabIndex = 9;
             // 
             // AveragePixel
@@ -141,7 +141,7 @@
             this.AveragePixel.Location = new System.Drawing.Point(4, 22);
             this.AveragePixel.Name = "AveragePixel";
             this.AveragePixel.Padding = new System.Windows.Forms.Padding(3);
-            this.AveragePixel.Size = new System.Drawing.Size(638, 291);
+            this.AveragePixel.Size = new System.Drawing.Size(638, 328);
             this.AveragePixel.TabIndex = 0;
             this.AveragePixel.Text = "AveragePixel";
             this.AveragePixel.UseVisualStyleBackColor = true;
@@ -161,12 +161,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 396);
+            this.Controls.Add(this.Average);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Average);
             this.Controls.Add(this.Prepare_Triangle);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.numericUpDown1);

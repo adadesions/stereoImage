@@ -20,3 +20,6 @@ C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\Find
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.Form1.resources
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.Properties.Resources.resources
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.csproj.GenerateResource.Cache
+C:\cygwin64\home\PorNB3558\stereoImage\FindAverageTexture\FindAverageTexture\bin\Debug\FindAverageTexture.exe.config
+C:\cygwin64\home\PorNB3558\stereoImage\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.exe
+C:\cygwin64\home\PorNB3558\stereoImage\FindAverageTexture\FindAverageTexture\obj\Debug\FindAverageTexture.pdb
