@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Start = new System.Windows.Forms.Button();
             this.Prepare_Triangle = new System.Windows.Forms.Button();
@@ -37,16 +38,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.AveragePixel = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DrawPixel = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.DrawPixel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(763, 17);
+            this.numericUpDown1.Location = new System.Drawing.Point(488, 19);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             500,
             0,
@@ -58,7 +61,7 @@
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(662, 91);
+            this.Start.Location = new System.Drawing.Point(387, 96);
             this.Start.Name = "Start";
             this.Start.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Start.Size = new System.Drawing.Size(193, 36);
@@ -69,7 +72,7 @@
             // 
             // Prepare_Triangle
             // 
-            this.Prepare_Triangle.Location = new System.Drawing.Point(662, 43);
+            this.Prepare_Triangle.Location = new System.Drawing.Point(387, 48);
             this.Prepare_Triangle.Name = "Prepare_Triangle";
             this.Prepare_Triangle.Size = new System.Drawing.Size(193, 42);
             this.Prepare_Triangle.TabIndex = 3;
@@ -79,7 +82,7 @@
             // 
             // Average
             // 
-            this.Average.Location = new System.Drawing.Point(662, 206);
+            this.Average.Location = new System.Drawing.Point(387, 181);
             this.Average.Name = "Average";
             this.Average.Size = new System.Drawing.Size(193, 41);
             this.Average.TabIndex = 4;
@@ -90,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(659, 142);
+            this.label1.Location = new System.Drawing.Point(387, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 5;
@@ -98,7 +101,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(763, 171);
+            this.numericUpDown2.Location = new System.Drawing.Point(488, 155);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             500,
             0,
@@ -111,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(659, 173);
+            this.label2.Location = new System.Drawing.Point(387, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 7;
@@ -120,7 +123,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(677, 19);
+            this.label3.Location = new System.Drawing.Point(387, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 8;
@@ -128,39 +131,40 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.AveragePixel);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.DrawPixel);
             this.tabControl1.Location = new System.Drawing.Point(7, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(646, 354);
+            this.tabControl1.Size = new System.Drawing.Size(374, 411);
             this.tabControl1.TabIndex = 9;
             // 
-            // AveragePixel
+            // DrawPixel
             // 
-            this.AveragePixel.Location = new System.Drawing.Point(4, 22);
-            this.AveragePixel.Name = "AveragePixel";
-            this.AveragePixel.Padding = new System.Windows.Forms.Padding(3);
-            this.AveragePixel.Size = new System.Drawing.Size(638, 328);
-            this.AveragePixel.TabIndex = 0;
-            this.AveragePixel.Text = "AveragePixel";
-            this.AveragePixel.UseVisualStyleBackColor = true;
+            this.DrawPixel.AutoScroll = true;
+            this.DrawPixel.Controls.Add(this.pictureBox1);
+            this.DrawPixel.Location = new System.Drawing.Point(4, 22);
+            this.DrawPixel.Name = "DrawPixel";
+            this.DrawPixel.Padding = new System.Windows.Forms.Padding(3);
+            this.DrawPixel.Size = new System.Drawing.Size(366, 385);
+            this.DrawPixel.TabIndex = 0;
+            this.DrawPixel.Text = "DrawPixel";
+            this.DrawPixel.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // pictureBox1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(638, 291);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(355, 365);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 396);
+            this.ClientSize = new System.Drawing.Size(600, 440);
             this.Controls.Add(this.Average);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
@@ -175,6 +179,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.DrawPixel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,8 +196,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage AveragePixel;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage DrawPixel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

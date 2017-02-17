@@ -1,4 +1,9 @@
-create file Json keep PointX PointY PointZ 
+This Project Do
+	Learn PCA
+	Mean Face
+	Draw Face By PCA
+
+Copy file Json by Project FindZ keep PointX PointY PointZ 
 Define Filename PointFace1 into Folder bin\PointFace
 install Package NewtonSoft
                   Accord

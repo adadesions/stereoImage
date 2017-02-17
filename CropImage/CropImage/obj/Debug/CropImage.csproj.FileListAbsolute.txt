@@ -7,3 +7,12 @@ c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\De
 c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.csproj.GenerateResource.Cache
 c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.exe
 c:\users\pornb\documents\visual studio 2015\Projects1\CropImage\CropImage\obj\Debug\CropImage.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\bin\Debug\CropImage.exe.config
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\bin\Debug\CropImage.exe
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\bin\Debug\CropImage.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.csprojResolveAssemblyReference.cache
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.CropImage.resources
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.Properties.Resources.resources
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.csproj.GenerateResource.Cache
+C:\cygwin64\home\PorNB3558\stereoImage\CropImage\CropImage\obj\Debug\CropImage.exe

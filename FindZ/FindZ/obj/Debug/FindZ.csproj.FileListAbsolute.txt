@@ -14,3 +14,19 @@ C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\Find
 C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\obj\Debug\FindZ.pdb
 C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Newtonsoft.Json.dll
 C:\Users\PorNB\documents\visual studio 2015\Projects1\FindZ\FindZ\bin\Debug\Newtonsoft.Json.xml
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\FindZ.exe.config
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.csprojResolveAssemblyReference.cache
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.Form1.resources
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.Properties.Resources.resources
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.csproj.GenerateResource.Cache
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\FindZ.exe
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\FindZ.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Emgu.CV.UI.dll
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Newtonsoft.Json.dll
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Emgu.CV.World.dll
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\ZedGraph.dll
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Emgu.CV.UI.xml
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Newtonsoft.Json.xml
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\bin\Debug\Emgu.CV.World.xml
+C:\cygwin64\home\PorNB3558\stereoImage\FindZ\FindZ\obj\Debug\FindZ.exe

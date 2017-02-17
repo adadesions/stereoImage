@@ -1,2 +1,6 @@
-สร้าง โฟลเดอ emgu2 ไว่ใน C:\ เพื่อที่จะสามารถเซฟจุดที่อัพเดท 
+This Project Do
+	Train Point On Face
+
+How to use
+	
 

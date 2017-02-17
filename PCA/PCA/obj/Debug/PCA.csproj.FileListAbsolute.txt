@@ -80,3 +80,44 @@ C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\PCA\PCA\obj\Debug\PCA.c
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\PCA\PCA\obj\Debug\PCA.Form1.resources
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\PCA\PCA\obj\Debug\PCA.Properties.Resources.resources
 C:\Users\PorNB3558\Documents\Visual Studio 2015\Projects\PCA\PCA\obj\Debug\PCA.csproj.GenerateResource.Cache
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\PCA.exe.config
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.exe
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.dll.config
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\PCA.exe
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\PCA.pdb
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Controls.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.MachineLearning.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.MachineLearning.GPL.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Math.Core.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Math.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Statistics.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Newtonsoft.Json.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\ZedGraph.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Controls.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.MachineLearning.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.MachineLearning.GPL.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Math.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Math.Core.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Accord.Statistics.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\Newtonsoft.Json.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\ZedGraph.xml
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\de\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\es\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\fr\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\hu\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\it\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\ja\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\pt\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\ru\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\sk\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\sv\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\tr\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.csprojResolveAssemblyReference.cache
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.Form1.resources
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.Properties.Resources.resources
+C:\cygwin64\home\PorNB3558\stereoImage\PCA\PCA\obj\Debug\PCA.csproj.GenerateResource.Cache
