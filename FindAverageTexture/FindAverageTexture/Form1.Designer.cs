@@ -135,7 +135,7 @@
             this.tabControl1.Location = new System.Drawing.Point(7, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(374, 411);
+            this.tabControl1.Size = new System.Drawing.Size(375, 411);
             this.tabControl1.TabIndex = 9;
             // 
             // DrawPixel
@@ -145,7 +145,7 @@
             this.DrawPixel.Location = new System.Drawing.Point(4, 22);
             this.DrawPixel.Name = "DrawPixel";
             this.DrawPixel.Padding = new System.Windows.Forms.Padding(3);
-            this.DrawPixel.Size = new System.Drawing.Size(366, 385);
+            this.DrawPixel.Size = new System.Drawing.Size(367, 385);
             this.DrawPixel.TabIndex = 0;
             this.DrawPixel.Text = "DrawPixel";
             this.DrawPixel.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.Controls.Add(this.Start);
             this.Controls.Add(this.numericUpDown1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MeanTexture";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.tabControl1.ResumeLayout(false);

@@ -90,12 +90,12 @@ namespace PCA
                 //insert data to array
                 for (int x = 0; x < 37; x++)
                 {
-                    sourceMatrix[faceInt][x] = pointx[x]+50; //+50 เพื่อขยับภาพห่างขอบ
+                    sourceMatrix[faceInt][x] = pointx[x]; //+50 เพื่อขยับภาพห่างขอบ
                     //Console.WriteLine("x[" + x + "] :" + sourceMatrix[faceInt][x] + "\n");
                 }
                 for (int y = 0; y < 37; y++)
                 {
-                    sourceMatrix[faceInt][y + 37] = pointy[y]+50; //+50 เพื่อขยับภาพห่างขอบ
+                    sourceMatrix[faceInt][y + 37] = pointy[y]; //+50 เพื่อขยับภาพห่างขอบ
                     //Console.WriteLine("y[" + y + "] :" + sourceMatrix[faceInt][y+37] + "\n");
                 }
                 for (int z = 0; z < 37; z++)
@@ -195,7 +195,7 @@ namespace PCA
             {
                 //yes...                
 
-                string path = "../PointFaceCropAverageXYZ" + ".txt";
+                string path = "../PointFaceCropAverageXY" + ".txt";
                 //if (!File.Exists(path))
                 //{
                     // Create a file to write to.
@@ -206,10 +206,10 @@ namespace PCA
                             int averageX_int = Convert.ToInt32(average[k]);
                             int averageY_int = Convert.ToInt32(average[k+37]);
                             int averageZ_int = Convert.ToInt32(average[k + 74]);
-                            double averageX_double = averageX_int/1000;
-                            double averageY_double = averageY_int / 1000;
-                            double averageZ_double = averageZ_int / 1000;
-                        sw.Write(averageX_double + " " + averageY_double + " "+ averageZ_double +"\n");
+                            double averageX_double = averageX_int;
+                            double averageY_double = averageY_int;
+                            double averageZ_double = averageZ_int;
+                        sw.Write(averageX_double + " " + averageY_double +"\n");
                         }
                         sw.Close();
                     }
@@ -544,7 +544,6 @@ namespace PCA
                 // Create a Bitmap object from a file.
                 Bitmap myBitmap = new Bitmap(355, 365);
 
-
                 // Draw myBitmap to the screen.
                 e.Graphics.DrawImage(myBitmap, 0, 0, myBitmap.Width, myBitmap.Height);
 
@@ -745,7 +744,7 @@ namespace PCA
 
             if (File.Exists("../AveragePoint.json"))
             {
-//--------------------------------Draw Line Deluanay-----------------------------------------------------
+//--------------------------------Draw Line Delaunay-----------------------------------------------------
                 Point[] ss = new Point[37];
                 for (int s = 0; s < 37; s++)
                 {
@@ -764,7 +763,7 @@ namespace PCA
                         }
                     }
                 }
-//-------------------------------End Draw Line Deluanay----------------------------------------------------          
+//-------------------------------End Draw Line Delaunay----------------------------------------------------          
 
 //---------------------------------------Draw Point-------------------------------------------------------
                 int[] pointxx = new int[37];
@@ -899,9 +898,7 @@ namespace PCA
         {
             Calculate_MeshMove_By_Parameter();
             Invalidate(true);
-        }
-
-        
+        }   
 
         private void Load_Average_Face_Click(object sender, EventArgs e)
         {

@@ -1100,7 +1100,7 @@ namespace FindAverageTexture
                 {
                     for (int Ycount = 0; Ycount < myBitmap.Height; Ycount++)
                     {
-                        Color pixell = Color.FromArgb(pixelR[Xcount][Ycount], pixelG[Xcount][Ycount], pixelB[Xcount][Ycount]);
+                        Color pixell = Color.FromArgb(pixelR[Xcount][Ycount], pixelR[Xcount][Ycount], pixelR[Xcount][Ycount]);
                         myBitmap.SetPixel(Xcount, Ycount, pixell);
                     }
                 }
