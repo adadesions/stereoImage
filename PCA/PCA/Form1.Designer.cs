@@ -64,6 +64,7 @@
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Save_MeanFaceXY_Text = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeatureVectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AveragePoint)).BeginInit();
@@ -186,6 +187,7 @@
             // EigenVector
             // 
             this.EigenVector.AutoScroll = true;
+            this.EigenVector.Controls.Add(this.Save_MeanFaceXY_Text);
             this.EigenVector.Controls.Add(this.Save_Avg_Value_Json);
             this.EigenVector.Controls.Add(this.SaveAvg);
             this.EigenVector.Controls.Add(this.cbMethod);
@@ -205,9 +207,9 @@
             // 
             // Save_Avg_Value_Json
             // 
-            this.Save_Avg_Value_Json.Location = new System.Drawing.Point(8, 236);
+            this.Save_Avg_Value_Json.Location = new System.Drawing.Point(6, 278);
             this.Save_Avg_Value_Json.Name = "Save_Avg_Value_Json";
-            this.Save_Avg_Value_Json.Size = new System.Drawing.Size(210, 42);
+            this.Save_Avg_Value_Json.Size = new System.Drawing.Size(213, 42);
             this.Save_Avg_Value_Json.TabIndex = 14;
             this.Save_Avg_Value_Json.Text = "Save Mean Face Json";
             this.Save_Avg_Value_Json.UseVisualStyleBackColor = true;
@@ -219,7 +221,7 @@
             this.SaveAvg.Name = "SaveAvg";
             this.SaveAvg.Size = new System.Drawing.Size(213, 42);
             this.SaveAvg.TabIndex = 13;
-            this.SaveAvg.Text = "Save MeanFace Text";
+            this.SaveAvg.Text = "Save MeanFaceXYZ Text";
             this.SaveAvg.UseVisualStyleBackColor = true;
             this.SaveAvg.Click += new System.EventHandler(this.SaveAvg_Click);
             // 
@@ -505,6 +507,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
+            // Save_MeanFaceXY_Text
+            // 
+            this.Save_MeanFaceXY_Text.Location = new System.Drawing.Point(6, 232);
+            this.Save_MeanFaceXY_Text.Name = "Save_MeanFaceXY_Text";
+            this.Save_MeanFaceXY_Text.Size = new System.Drawing.Size(213, 40);
+            this.Save_MeanFaceXY_Text.TabIndex = 15;
+            this.Save_MeanFaceXY_Text.Text = "Save MeanFaceXY Text";
+            this.Save_MeanFaceXY_Text.UseVisualStyleBackColor = true;
+            this.Save_MeanFaceXY_Text.Click += new System.EventHandler(this.Save_MeanFaceXY_Text_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,6 +597,7 @@
         private System.Windows.Forms.TrackBar trackBar19;
         private System.Windows.Forms.Button Save_Avg_Value_Json;
         private System.Windows.Forms.Button Load_Average_Face;
+        private System.Windows.Forms.Button Save_MeanFaceXY_Text;
     }
 }
 

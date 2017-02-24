@@ -190,12 +190,12 @@ namespace PCA
 
         private void SaveAvg_Click(object sender, EventArgs e) //Mean Face text
         {
-            DialogResult result = MessageBox.Show("Save To PCA/PCA/bin", "Save txt", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Save To PCA/PCA/bin", "Save MeanFaceXYZ txt", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //yes...                
 
-                string path = "../PointFaceCropAverageXY" + ".txt";
+                string path = "../PointFaceCropAverageXYZ" + ".txt";
                 //if (!File.Exists(path))
                 //{
                     // Create a file to write to.
@@ -209,13 +209,50 @@ namespace PCA
                             double averageX_double = averageX_int;
                             double averageY_double = averageY_int;
                             double averageZ_double = averageZ_int;
-                        sw.Write(averageX_double + " " + averageY_double +"\n");
+                        sw.Write(averageX_double + " " + averageY_double + " " + averageZ_double + "\n");
                         }
                         sw.Close();
                     }
                     Console.WriteLine("File create!!!!");
                 //}
-                MessageBox.Show("Save File");
+                MessageBox.Show("Save MeanFaceXYZ text done");
+                Invalidate(true);
+
+            }
+            else if (result == DialogResult.No)
+            {
+                //no...
+            }
+        }
+
+        private void Save_MeanFaceXY_Text_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Save To PCA/PCA/bin", "Save MeanFaceXY txt", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //yes...                
+
+                string path = "../PointFaceCropAverageXY" + ".txt";
+                //if (!File.Exists(path))
+                //{
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    for (int k = 0; k <= 36; k++)
+                    {
+                        int averageX_int = Convert.ToInt32(average[k]);
+                        int averageY_int = Convert.ToInt32(average[k + 37]);
+                        //int averageZ_int = Convert.ToInt32(average[k + 74]);
+                        double averageX_double = averageX_int;
+                        double averageY_double = averageY_int;
+                        //double averageZ_double = averageZ_int;
+                        sw.Write(averageX_double + " " + averageY_double + "\n");
+                    }
+                    sw.Close();
+                }
+                Console.WriteLine("File create!!!!");
+                //}
+                MessageBox.Show("Save MeanFaceXY text done");
                 Invalidate(true);
 
             }
@@ -912,5 +949,6 @@ namespace PCA
             Invalidate(true);
         }
 
+        
     }
 }
