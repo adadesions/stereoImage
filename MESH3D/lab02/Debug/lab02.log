@@ -1,0 +1,4 @@
+﻿  simplewin32.cpp
+c:\users\user\downloads\compressed\project-cg_2\tanks\simplewin32.cpp(814): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
+  lab02.vcxproj -> C:\Users\User\Downloads\Compressed\Project-CG_2\TANKS\lab02\Debug\lab02.exe
+  lab02.vcxproj -> C:\Users\User\Downloads\Compressed\Project-CG_2\TANKS\lab02\Debug\lab02.pdb (Full PDB)
