@@ -1058,6 +1058,347 @@ namespace FindAverageTexture
             pictureBox1.Refresh();
         }
 
+        public void cal_PixelB()
+        {
+            decimal value = (numericUpDown2.Value); //ค่าเลือก หมายเลขหน้า
+            int NumberOfFace = decimal.ToInt32(value); //แปลงเป็น int
+            int NumberOfFaceMax = 1;
+            int[][] sourceMatrix = new int[NumberOfFaceMax][]; //จำนวนหน้า
+            for (int i = 0; i < NumberOfFaceMax; i++) //;NumberOfFaceMax Must corresponding Array SourceMatrix if not Error in Learn PCA
+            {
+                sourceMatrix[i] = new int[129575]; //Pixel 355*365
+            }
+
+            for (int faceInt = 0; faceInt < NumberOfFaceMax; faceInt++)
+            { //Insert All PointFace to array 
+                int faceIntt = faceInt + 1;
+
+                string json = File.ReadAllText("../Pixel/Pixel_B" + NumberOfFace + ".json");
+                int[][] pixel = JsonConvert.DeserializeObject<int[][]>(json);
+
+                // Create a matrix from the source data table
+                //double[][] sourceMatrix = new double[][] { new double[] { 2, 3, 5 }, new double[] { 5, 6, 10 }, new double[] { 10, 15, 30 } };
+
+                //insert data to array
+                int xx = 0, yy = 0;
+                for (int x = 0; x < 129575; x++)
+                {
+
+                    sourceMatrix[faceInt][x] = pixel[xx][yy];
+                    ++yy; //pixel keep up to down >> left to right
+                    if (yy % 365 == 0)
+                    {
+                        ++xx;
+                        yy = 0;
+                    }
+                    //Console.WriteLine("x[" + x + "] :" + sourceMatrix[faceInt][x] + "\n");
+                }
+
+            }//load all face done
+
+            //prepare Value Sum all face per point ซัมของทุกหน้าจาก1จุด
+
+            int[][] SumOf1Pixel = new int[129575][]; //129575 from 355*365 pixel
+            for (int i = 0; i < 129575; i++)
+            {
+                SumOf1Pixel[i] = new int[NumberOfFaceMax];
+            }
+
+            //Add Value all face per 1 Dimension(111 = 37 Point*3 Dimension) to sum1point
+            for (int point = 0; point < 129575; point++) //loop dimension
+            {
+                for (int face = 0; face < NumberOfFaceMax; face++) //loop face
+                {
+                    if (face == 0)
+                    {
+                        SumOf1Pixel[point][face] = sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : " + sum1point[point][face]);
+                    }
+                    if (face != 0)
+                    {
+                        SumOf1Pixel[point][face] = SumOf1Pixel[point][face - 1] + sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : "+ sum1point[point][face]);
+                    }
+
+                    //calculate average all point
+                    ////SumOf1Pixel[point][face] > last index face is value sum of all face
+                    if (face == NumberOfFaceMax - 1)
+                    {
+                        average[point] = SumOf1Pixel[point][face] / NumberOfFaceMax;
+                        //Console.WriteLine(face + "\n");
+                        //Console.WriteLine("Point " + point + ": " + average[point]);
+                    }
+                }//end inside for loop
+            }//end outside for loop
+
+            int[][] averageBeauty = new int[355][];
+            for (int a = 0; a < 355; a++) //37 from point on face
+            {
+                averageBeauty[a] = new int[365];  //3 from x y z
+            }
+            int pix = 0;
+            for (int x = 0; x < 355; x++)
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    averageBeauty[x][y] = average[pix];
+                    ++pix;
+                }
+
+            }
+
+            //dgvAveragePixel.DataSource = new ArrayDataView(averageBeauty); //x1 to x37 y1 to y37 z1 to z37
+            string averagejson = JsonConvert.SerializeObject(averageBeauty);
+            System.IO.File.WriteAllText("../AveragePixel_B" + ".json", averagejson);
+
+            string path = "../PixelAverage_B" + ".txt";
+            //if (!File.Exists(path))
+            //{
+            // Create a file to write to.
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    for (int x = 0; x < 355; x++)
+                    {
+                        sw.Write(averageBeauty[x][y] + " ");
+                    }
+                    sw.Write("\n");
+                }
+                sw.Close();
+            }
+        }
+        public void cal_PixelG()
+        {
+            decimal value = (numericUpDown2.Value); //ค่าเลือก หมายเลขหน้า
+            int NumberOfFace = decimal.ToInt32(value); //แปลงเป็น int
+            int NumberOfFaceMax = 1;
+            int[][] sourceMatrix = new int[NumberOfFaceMax][]; //จำนวนหน้า
+            for (int i = 0; i < NumberOfFaceMax; i++) //;NumberOfFaceMax Must corresponding Array SourceMatrix if not Error in Learn PCA
+            {
+                sourceMatrix[i] = new int[129575]; //Pixel 355*365
+            }
+
+            for (int faceInt = 0; faceInt < NumberOfFaceMax; faceInt++)
+            { //Insert All PointFace to array 
+                int faceIntt = faceInt + 1;
+
+                string json = File.ReadAllText("../Pixel/Pixel_G" + NumberOfFace + ".json");
+                int[][] pixel = JsonConvert.DeserializeObject<int[][]>(json);
+
+                // Create a matrix from the source data table
+                //double[][] sourceMatrix = new double[][] { new double[] { 2, 3, 5 }, new double[] { 5, 6, 10 }, new double[] { 10, 15, 30 } };
+
+                //insert data to array
+                int xx = 0, yy = 0;
+                for (int x = 0; x < 129575; x++)
+                {
+
+                    sourceMatrix[faceInt][x] = pixel[xx][yy];
+                    ++yy; //pixel keep up to down >> left to right
+                    if (yy % 365 == 0)
+                    {
+                        ++xx;
+                        yy = 0;
+                    }
+                    //Console.WriteLine("x[" + x + "] :" + sourceMatrix[faceInt][x] + "\n");
+                }
+
+            }//load all face done
+
+            //prepare Value Sum all face per point ซัมของทุกหน้าจาก1จุด
+
+            int[][] SumOf1Pixel = new int[129575][]; //129575 from 355*365 pixel
+            for (int i = 0; i < 129575; i++)
+            {
+                SumOf1Pixel[i] = new int[NumberOfFaceMax];
+            }
+
+            //Add Value all face per 1 Dimension(111 = 37 Point*3 Dimension) to sum1point
+            for (int point = 0; point < 129575; point++) //loop dimension
+            {
+                for (int face = 0; face < NumberOfFaceMax; face++) //loop face
+                {
+                    if (face == 0)
+                    {
+                        SumOf1Pixel[point][face] = sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : " + sum1point[point][face]);
+                    }
+                    if (face != 0)
+                    {
+                        SumOf1Pixel[point][face] = SumOf1Pixel[point][face - 1] + sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : "+ sum1point[point][face]);
+                    }
+
+                    //calculate average all point
+                    ////SumOf1Pixel[point][face] > last index face is value sum of all face
+                    if (face == NumberOfFaceMax - 1)
+                    {
+                        average[point] = SumOf1Pixel[point][face] / NumberOfFaceMax;
+                        //Console.WriteLine(face + "\n");
+                        //Console.WriteLine("Point " + point + ": " + average[point]);
+                    }
+                }//end inside for loop
+            }//end outside for loop
+
+            int[][] averageBeauty = new int[355][];
+            for (int a = 0; a < 355; a++) //37 from point on face
+            {
+                averageBeauty[a] = new int[365];  //3 from x y z
+            }
+            int pix = 0;
+            for (int x = 0; x < 355; x++)
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    averageBeauty[x][y] = average[pix];
+                    ++pix;
+                }
+
+            }
+
+            //dgvAveragePixel.DataSource = new ArrayDataView(averageBeauty); //x1 to x37 y1 to y37 z1 to z37
+            string averagejson = JsonConvert.SerializeObject(averageBeauty);
+            System.IO.File.WriteAllText("../AveragePixel_G" + ".json", averagejson);
+
+            string path = "../PixelAverage_G" + ".txt";
+            //if (!File.Exists(path))
+            //{
+            // Create a file to write to.
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    for (int x = 0; x < 355; x++)
+                    {
+                        sw.Write(averageBeauty[x][y] + " ");
+                    }
+                    sw.Write("\n");
+                }
+                sw.Close();
+            }
+        }
+        public void cal_PixelR()
+        {
+            decimal value = (numericUpDown2.Value); //ค่าเลือก หมายเลขหน้า
+            int NumberOfFace = decimal.ToInt32(value); //แปลงเป็น int
+            int NumberOfFaceMax = 1;
+            int[][] sourceMatrix = new int[NumberOfFaceMax][]; //จำนวนหน้า
+            for (int i = 0; i < NumberOfFaceMax; i++) //;NumberOfFaceMax Must corresponding Array SourceMatrix if not Error in Learn PCA
+            {
+                sourceMatrix[i] = new int[129575]; //Pixel 355*365
+            }
+
+            for (int faceInt = 0; faceInt < NumberOfFaceMax; faceInt++)
+            { //Insert All PointFace to array 
+                int faceIntt = faceInt + 1;
+
+                string json = File.ReadAllText("../Pixel/Pixel_R" + NumberOfFace + ".json");
+                int[][] pixel = JsonConvert.DeserializeObject<int[][]>(json);
+
+                // Create a matrix from the source data table
+                //double[][] sourceMatrix = new double[][] { new double[] { 2, 3, 5 }, new double[] { 5, 6, 10 }, new double[] { 10, 15, 30 } };
+
+                //insert data to array
+                int xx = 0, yy = 0;
+                for (int x = 0; x < 129575; x++)
+                {
+
+                    sourceMatrix[faceInt][x] = pixel[xx][yy];
+                    ++yy; //pixel keep up to down >> left to right
+                    if (yy % 365 == 0)
+                    {
+                        ++xx;
+                        yy = 0;
+                    }
+                    //Console.WriteLine("x[" + x + "] :" + sourceMatrix[faceInt][x] + "\n");
+                }
+
+            }//load all face done
+
+            //prepare Value Sum all face per point ซัมของทุกหน้าจาก1จุด
+
+            int[][] SumOf1Pixel = new int[129575][]; //129575 from 355*365 pixel
+            for (int i = 0; i < 129575; i++)
+            {
+                SumOf1Pixel[i] = new int[NumberOfFaceMax];
+            }
+
+            //Add Value all face per 1 Dimension(111 = 37 Point*3 Dimension) to sum1point
+            for (int point = 0; point < 129575; point++) //loop dimension
+            {
+                for (int face = 0; face < NumberOfFaceMax; face++) //loop face
+                {
+                    if (face == 0)
+                    {
+                        SumOf1Pixel[point][face] = sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : " + sum1point[point][face]);
+                    }
+                    if (face != 0)
+                    {
+                        SumOf1Pixel[point][face] = SumOf1Pixel[point][face - 1] + sourceMatrix[face][point];
+                        //Console.WriteLine(face + " : "+ sum1point[point][face]);
+                    }
+
+                    //calculate average all point
+                    ////SumOf1Pixel[point][face] > last index face is value sum of all face
+                    if (face == NumberOfFaceMax - 1)
+                    {
+                        average[point] = SumOf1Pixel[point][face] / NumberOfFaceMax;
+                        //Console.WriteLine(face + "\n");
+                        //Console.WriteLine("Point " + point + ": " + average[point]);
+                    }
+                }//end inside for loop
+            }//end outside for loop
+
+            int[][] averageBeauty = new int[355][];
+            for (int a = 0; a < 355; a++) //37 from point on face
+            {
+                averageBeauty[a] = new int[365];  //3 from x y z
+            }
+            int pix = 0;
+            for (int x = 0; x < 355; x++)
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    averageBeauty[x][y] = average[pix];
+                    ++pix;
+                }
+
+            }
+
+            //dgvAveragePixel.DataSource = new ArrayDataView(averageBeauty); //x1 to x37 y1 to y37 z1 to z37
+            string averagejson = JsonConvert.SerializeObject(averageBeauty);
+            System.IO.File.WriteAllText("../AveragePixel_R" + ".json", averagejson);
+
+            string path = "../PixelAverage_R" + ".txt";
+            //if (!File.Exists(path))
+            //{
+            // Create a file to write to.
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                for (int y = 0; y < 365; y++)
+                {
+                    for (int x = 0; x < 355; x++)
+                    {
+                        sw.Write(averageBeauty[x][y] + " ");
+                    }
+                    sw.Write("\n");
+                }
+                sw.Close();
+            }
+        }
+
+        public void Cal_Sing_Pixel()
+        {
+            cal_PixelB();
+            cal_PixelG();
+            cal_PixelR();
+            Console.WriteLine("File create!!!!");
+            //}
+            pictureBox1.Refresh();
+        }
+
         private void Start_Click(object sender, EventArgs e)
         {            
             get_pixel();
@@ -1100,7 +1441,7 @@ namespace FindAverageTexture
                 {
                     for (int Ycount = 0; Ycount < myBitmap.Height; Ycount++)
                     {
-                        Color pixell = Color.FromArgb(pixelR[Xcount][Ycount], pixelR[Xcount][Ycount], pixelR[Xcount][Ycount]);
+                        Color pixell = Color.FromArgb(pixelR[Xcount][Ycount], pixelG[Xcount][Ycount], pixelB[Xcount][Ycount]);
                         myBitmap.SetPixel(Xcount, Ycount, pixell);
                     }
                 }
@@ -1110,6 +1451,11 @@ namespace FindAverageTexture
                     myBitmap.Width, myBitmap.Height);
             }
                         
+        }
+
+        private void Cal_Single_Pixel_Click(object sender, EventArgs e)
+        {
+            Cal_Sing_Pixel();
         }
     }
 }

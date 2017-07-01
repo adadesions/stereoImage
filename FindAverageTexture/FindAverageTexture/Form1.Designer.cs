@@ -40,6 +40,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.DrawPixel = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Cal_Single_Pixel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -160,11 +161,22 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
+            // Cal_Single_Pixel
+            // 
+            this.Cal_Single_Pixel.Location = new System.Drawing.Point(388, 228);
+            this.Cal_Single_Pixel.Name = "Cal_Single_Pixel";
+            this.Cal_Single_Pixel.Size = new System.Drawing.Size(193, 41);
+            this.Cal_Single_Pixel.TabIndex = 10;
+            this.Cal_Single_Pixel.Text = "Cal_Single_Pixel";
+            this.Cal_Single_Pixel.UseVisualStyleBackColor = true;
+            this.Cal_Single_Pixel.Click += new System.EventHandler(this.Cal_Single_Pixel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 440);
+            this.Controls.Add(this.Cal_Single_Pixel);
             this.Controls.Add(this.Average);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
@@ -198,6 +210,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage DrawPixel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Cal_Single_Pixel;
     }
 }
 
